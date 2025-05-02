@@ -19,7 +19,7 @@
       "type": "shell",
       "command": "make",
       "args": [
-        "build/shared-host.zip"
+        "build/chitch.zip"
       ],
       "group": {
         "kind": "build"
@@ -43,7 +43,7 @@
       "type": "shell",
       "command": "make",
       "args": [
-        "build/starter.tar.zst.sha256"
+        "build/chitch.tar.zst"
       ],
       "group": {
         "kind": "build"

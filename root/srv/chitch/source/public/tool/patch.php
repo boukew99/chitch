@@ -84,7 +84,7 @@ use function Chitch\{tokenize};
     <form method="GET">
         <label>Patch Name:
             <select name="patch" id="patch">
-                <?php foreach (glob("../../../../../../*.patch") as $patch) {
+                <?php foreach (glob("../../../../../../build/*.patch") as $patch) {
                     $base = basename($patch);
                     $selected = $patch === ($selectedPatch ?? '') ? ' selected' : '';
                     echo "<option value='" . ($patch) . "'$selected>"

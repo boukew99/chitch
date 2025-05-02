@@ -5,7 +5,6 @@
 PORT ?= 9001
 # https://www.php.net/manual/en/features.commandline.webserver.php
 build/php.log: bin/php  source source/public source/php.ini
-	(command -v xdg-open >/dev/null && xdg-open "http://localhost:$(PORT)/")
 	@echo "\nOpen Development Server at (http://localhost:$(PORT)) started"
 	@echo "**Stop server with 'Ctrl + C'**\n"
 	PHP_CLI_SERVER_WORKERS=4 $< \
@@ -54,7 +53,7 @@ build/%.sha256: %
 	shasum -a 256 $< > $@
 
 # Block size of average file size
-build/chitch.sqsh: chitch/
+build/chitch.sqsh: chitch
 	mksquashfs $< $@ -comp zstd -b 256K
 
 build/stash.patch: build/delta.patch
@@ -78,7 +77,7 @@ build/delta.patch: pristine source
 	rm -rf $<
 
 build/dependencies.svg: makefile
-	make chitch.deb chitch.tar.zst chitch.zip php.log -Bnd | make2graph | dot -Tsvg -o $@
+	make build/chitch.deb build/chitch.tar.zst build/chitch.zip build/php.log -Bnd | make2graph | dot -Tsvg -o $@
 
 # Create pristine if it doesn't exist and keep it static
 pristine: build/pristine.patch
