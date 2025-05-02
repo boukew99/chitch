@@ -79,7 +79,7 @@ Shared hosts are a relatively restricted setup, so in order to make the setup un
 1. Upload shared-host.zip in `public_html/chitch/`.
 2. Extract shared-host.zip.
 3. Set the Webroot with your **hosts tools** to `public_html/chitch/source/public/`.
-4. Go to the page `session/install.php` on your domain and follow the instructions there.
+4. Go to the page `install.php` on your domain and follow the instructions there.
 
 ### Self-Host
 Chitch can also easily be installed on your own setup. The self-host setup is specifically built for an [Debian distrubution or derivative](https://www.debian.org/derivatives/). This includes for example Raspberry Pi OS or most Virtual Private Server setups. There is an build option: `Debian Setup for Apache Web Server`. It creates an `chitch.deb` package which can be installed with `sudo apt install ./chitch.deb`. You can also try to install it by double-clicking the file in a file browser locally.
