@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+
+# Disable the default site
+a2dissite 000-default.conf
+
+# Enable the new site
+a2ensite chitch.conf
+
+
+a2enmod php8.4
+
+# Reload Apache to apply changes
+systemctl reload apache2

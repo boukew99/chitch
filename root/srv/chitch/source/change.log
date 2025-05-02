@@ -1,0 +1,183 @@
+bokuh-1.patch:
+2024-11-04
+
+bokuh-2.patch:
+2024-11-12
+
+bokuh-3.patch:
+2024-11-19
+
+bokuh-4.patch:
+2024-11-23
+
+bokuh-5.patch:
+2024-12-10
+
+bokuh-6.patch:
+2024-12-20
+
+bokuh-7.patch:
+2025-01-09
+
+bokuh-8.patch:
+2025-01-16
+
+chitch-1.patch:
+2025-01-27
+
+chitch-1-2.patch:
+Who says you need a password for login? We can leverage email as identity and even encrypt those emails on the server.
+
+Based onec753c0021a463254e8e6f9ef5c9cedc4c948ae93470d3271dacc8c1ccdb86a0  chitch-1-2.patch
+Commited by bokuh at 2025-01-28
+
+chitch-1-3.patch:
+Decided to drop the complications of documenting system setup for Chitch including WSL. Alo generalizing hosting
+
+Based on c0b43f1a4a6cccecfc8023b6e15e993128884674d0236b8ca783fb3d529999ef  chitch-1-3.patch
+Commited by bokuh at 2025-02-01
+
+chitch-1-4.patch:
+Did you know that the European Union has a public license? I've updated Chitch to use it. I've also added a backup feature, it combines a human interface and API. I've also removed some unused files and directories. I've also updated the CSS and JS files to use the new names. I feel like the codebase would now be stable enough (no file shuffling) for Git.  Chitch requires now a fixed path ~/chitch/ where it can do chitch stuff reliably. This allows Chitch to be installed. I have added a Mail Interception for local testing.
+
+Based on 2ee77ee5a5823ef56a8620b57db6ee34a5ce2c4d75ab3c2db734004970eb74b0  chitch-1-4.patch
+Commited by bokuh at 2025-02-07
+
+chitch-1-5.patch:
+Separated POST + exit from GET + echo into interface and page file. This is for traffic and chat. New layout for usage with shared hosting and changing docroot. It can be made secure and deploy via extraction. library.php is no just in the same directory as the pages file so it can be included without relative paths, itself returns a blank page. From now on the diffs will also use the histogram option for better readability. line endings are not autodetected for more compatibility (probably) when dealing with file-uploads from non-Linux systems. Add code-coverage for library.php in reference.php. Added disk analysis which calculates the wasted space in the storage blocks. Also displays the dependent binary sizes.
+
+Based on 8c3afc10d4f594d73ea3a6acacc615f3c12fd408061fc756c99539a802cb4e9d  chitch-1-5.patch
+Commited by bokuh at 2025-02-14
+
+chitch-2.patch:
+Apparently I had not added the configuration files for the Language models and online development interface. Now they are added so we can see how the tools around the code evolve. Benchmarks utilizing Apache Bench are improved. A diffing page is added with custom markup for repeating and moved lines. This also helps with the current `git diff` limitations, which sometimes captured files which were moved and edited as new. For this the 'track' file was added to in the future. A bunch of bokuh files are also deleted as it now has its own (first) branch. I also moved to static head for the pages, which are use for development, as there are not that many pages and lines needed for that. head and foot were upgraded from library functions to files to be included. And a code index.php file was added for the development navigation. Inspired by the new structure, a new approach was taken for the library.php, which now is a namespace instead. This makes it easier to edit as it is much flatter and as a bonus there is better IDE support. Accidentally it has exactly the same properties as the closure approach but just with officially supported (procedural) language constructs. The uploads.php became simply a function in the library. Files now start with 'Licensed under EUPL' in accordance to the license. The 'redistribute' function retires, but it was a very fine one. Some early work on handling the '3 error types'. An sum of the all the PHP tokens was added to mirror a 'word count'. A new .htaccess file was added to enhance the shared hosting setup. HTTPS is now mandatory in the author/ directory. The news.php takes edge approach where the content is send wholly and compressed to the client which filters with DOM manipulation. This because the bottleneck is assumed to be the rendering and not content size. It also only requires DOM library on the client and not server. Added hex colors from r/place 2022. hotreload.js is not so useful anymore with longer pages. 'commands' file was added to be sourced with the shell can do some system checking and starting php server.
+
+Based on bca51057def8cefe77e7398a77fce0db10cbe8c86758937bca11e282133328b8  chitch-2.patch
+Commited by bokuh at 2025-02-25
+
+chitch-2-1.patch:
+I moved away from the command line approach. Its implementation is platform dependent. So the main target is still Linux, but the development system does not need to be so strict. I dug into static-php-cli project, which one can use to make a static build of PHP. This allows for a minimally sized PHP binary for this codebase specifically. This can be distributed withing the TAR for reliable development. Then through this binary we do all the system calls. The first example of this is 'start' file which combines a readme and can also be called to start php webserver. 'track' holds a remap of renames, but still needs a corresponding command. The main way to install chitch now is through the (visual) web browser and file browser.
+
+Based on 207d3ebf6728a518348df6189e2a4cdd922cd7c3d3e756176c90069d91537e40  chitch-2-1.patch
+Commited by bokuh at 2025-03-02
+
+chitch-3.patch:
+The source directory was unified with its upper directory. A .gitignore is added to not synchronize binary and generated data. Now we block all access above public directory and have the install.php in the public directory. Moved PHP dynamically set ini settings to a static php.ini file. The help text is now in its own .txt file, so we can have a .bat and .sh file for different systems. Added concurrent file access method with read and write functions in library.php. Write is append-only and exlusively locked unless under 4 KiB. Read is never locked but relies on markers to indicate the stable part. Thus reading is never locked and writing is locked when needed on a per file basis. Also the functions have default behaviors now if file is missing. With this change the DOM manipulation is moved to the client. recursivefiles() is replaced by getfiles(). tokenize() input goes from path to content. In code.php inline HTML is now hidden by default.  Now we have the pre and post hashes of the file with the --full-index options under the performed diffs. Installation is safer by generating an key file once on the server. The compatibility check is simplified. review.php has been split into update.php and manual.php. Added status.php to check error codes of the sites pages. update.php was reduced to some key properties. First draft of Halstead Complexity Measure. Split styles.css into code.css for developer only styling. Trying CSS nesting for better intention declaration. .bat file for windows file browser php server start. Filesystem checks moved to start.sh before server start. Track file removed with the use of a lower similarity index threshold of 15%, which assumes highly orthogonal content. benchmark.php replaced with Web browser response analysis tools.
+
+Based on 023fba3eda9a592e5418b29bebe4ae0e83a0786756e532216fcba520eedb4d68  chitch-3.patch
+Commited by bokuh at 2025-03-08
+
+chitch-3-1.patch:
+A patch.log is now under version control. It keeps an human summary of past patches and can be appended to for the current patch, which is then included in the patch file at the top. Git repo is symlinked for compatibility with this version system. The start.sh split into build.sh and run.sh. The built script mainly packages a subset of files for multiple targets. One target is a Self Extracting Archive with stub.sh, which is useful for contained local testing. Another target is a shared host with PHP installed. With the tar --dereference option once can control wether the package is independent. build.sh has quality tests beforehand and a version control step afterwards. This version control step replaces update.php which calls git inside. We lose the interesting way in update.php where we use an array for operating on lines and appending to it from a command, but perhaps it is better done in the shell. The generated patch files are now read-only and can be viewed by differ.php. differ.php filters deleted files lines and has more color group filters. The help.txt is split into server/help.txt for installation steps and context.txt for programmers and Indexing. The parent version is also symlinked within the version control and for easy patch creation. review.sh was added as an first automated review tool. run.sh always runs from it residing directory. .htaccess now ensures all php files gain HTTPS, in order to have safe interaction. URL shortcuts are enabled by appending '?shortcut' to the root /. This lets Apache handle it efficiently and allows the root page to be static HTML. install.php now creates a key file upon its first visit which can viewed only be the host. library.php read and write function are now defined as minimal HTML text stream with commit markes, which can be concurrently read and write appended to. public/ was renamed to html/ for Apache /var/www compatibility. Added tree() for reverse breadth first HTML creation. Also similarity index set to 1%, must indicate the orthogonality and uniqueness of the files!
+
+Based on 0b25a215c6c9d0f0a89336d96225e7aa86bbd63c4c192b4c424ea1807dedee95  chitch-3-1.patch
+Commited by bokuh at 2025-03-21
+
+chitch-3-2.patch:
+- Removed most symlinks, moved '.git/', '.vscode/', '/.github' above 'source/', they are used for Github and Codespace setup. Codespace setup is added for developer accesiblity.
+- Copyright notice is added before license notices, as 'Chitch © its Contributors 2025'
+- shell scripts were streamlined into build.sh, test.sh. run.sh.
+- build.sh prepares the filesystem and packages Chitch for defined targets in parallel.
+- With build.sh we can have a clean default filesystem of 'source/', 'assets/' and license.txt.
+- library.php was renamed to chitch.php like its namespace and to allow other library files.
+- 'read()' allows for entry cutoff to control for size.
+- a bunch of formatting
+- modularized 'public/' into directories of 'traffic', 'blog' and 'tools'.
+- Configured automatic brotli decompression on client.
+- trying inline form input handling
+- removed login in contact.php.
+- added guestbook.php for some fun
+- 'mail()' requires 'From:' and '-f'.
+- 'light-dark()' CSS color scheme
+- Capy(bara) happened
+- Added Fira Code as mono font, for ligatures and variable weight.
+- editor.php was added to edit code via HTTP
+- logs.php was added to inspect and overwrite dynamically created log files.
+- lookup.php was added for an overview of the functions and constants in the PHP binary.
+- a code line can be targetd with # in the URL in patch.php
+- Self Extracting Archive was removed for its complexity
+- test.sh checks reports the status codes of GET requests.
+
+Based on 030c0d9a2835a09970af77823517b2a3773641e0bc5306fd82347364b8598939  chitch-3-2.patch
+Commited by bokuh at 2025-04-01
+
+chitch-3-3.patch:
+- Changed Contributors copyright to Maintainers.
+- Otpmized build.sh to the point where it is almost a linear makefile.
+- Uses brotli compression (a streaming output, which complements density) for compression static files on the server.
+- Better integration of the custom patch files with Git
+- Overhauled change.log format
+- Cleaned up a lot of dangling lines and committed to 1 approach
+- removed monitor(), to offload to the server
+- Updated authorize() to align with login.php
+- Streamlined install.php procedure
+- 'assets/' now holds individual symlinks
+- null checks in ensue.js
+- input handling and the input fields are now near, with fields having server-side input memory
+- Added Firacode as monospace font in code.css
+- Capy renamed to Chitchi
+- Added Progressive Web App files
+- Added assets.php to list available assets
+- update.php was split into disk.php
+- reference.php has covers all chitch.php functions
+
+Based on 24d9357010e9378b595af6b17a8caead5d8fa9f77cb6401dd8812df4211444cd  chitch-3-3.patch
+Based on f7e469a0dc71b2840c38c4b81a682cff5056dfc5e32b7ae16836ae5f4a104240  chitch-3-3-full.patch
+Commited by bokuh <bokuh@chitch.org> at 2025-04-07
+
+chitch-3-4.patch:
+Hello from a patch file!
+touched: chitch.php .htaccess install.php patch.php check.php makefile
+Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot patch of chitch-3-3, meaning there were more changes than total lines.
+- Using spread(...) operator for more ergonomic input
+- chitch.php, input validation functions for scalar types
+- 'session/' component directory
+- markup 'p()' constructor
+- symlink generation in 'makefile'
+- 'light-dark()' for code.css and more token CSS
+- Replaced shell scripts with 1 'makefile' gaining targeted builds
+- renames for more accuracy
+
+Based on d51147091392e94ce3c266ad6fa45113c98a5a24016ba54dea48b8641a365204  chitch-3-4-delta.patch
+Based on 261a57f1d5cc6ce497cbf03ba73075ca91a5e9d7a8d79f88356f0911b9fc49db  chitch-3-4-full.patch
+Commit by bokuh at 2025-04-15T15:49:13Z
+
+chitch-3-5.patch:
+Happy Easter 😊!
+- HTML template functions, a(), p(), head(), foot()
+- pipe() function for transforms
+- assets & license directory symlinks
+- generic robots.txt disallowing support directories
+- install.php creates 'log/' directory
+- Table of Contents within '<details>' for hidden insertion
+- 'template/' directory layer for generated files and building.
+- using prisine.patch for 'source/' and 'pristine/' creation
+- 'source/' includes static symlinks
+- 'plugin/' symlink to global binaries as fallback
+
+Based on 1daa0d2b292574f62a30cf0384ca1f01170169d26eedaabbbeae18bf7f3b2758  chitch-3-5.patch
+Commit by bokuh at 2025-04-23T15:07:52Z
+
+chitch-3-6.patch:
+- Surfaced Files from non-functional directories
+- 'license/' include in 'assets/'
+- 'library/' symlink
+- 'getfiles()' exludes symlinks, which can be double
+- 'makefile':
+    - added chitch.deb target, includes root filesystem layout
+    - Established 4 main targets
+    - Moved make targets to static filesystem layout
+- '.htacces' does module checking
+- CSS nesting syntax fix (&)
+- changed contact messages to use '<details>'
+- moved editor.php internal script to editor.js
+- 'component' rename to 'share'
+
+chitch-3-7.patch: 2545a509baac3a0a6ecb713eec0b11a1a80cb1ba504c15bdf34ecf1595cd4638
+* rename 'share/' to 'public/' for easier documentation
+* moved makefile out of 'source' to be bundled in build artifacts
+* added 'textmarkup()' for '<textarea>' input
+* patch conflict needs rebase between snapshots
+
+-- By bokuh at 'time' Amsterdam
+

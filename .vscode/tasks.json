@@ -1,0 +1,126 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test Server",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/php.log"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": [],
+      "detail": "Uses the built-in PHP server. Opens the address of the starting server in the browser."
+    },
+    {
+      "label": "Shared Host ZIP",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/shared-host.zip"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Make a ZIP for extraction over FTP on a Shared host server"
+    },
+    {
+      "label": "Debain Setup for Apache Web Server",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/chitch.deb"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Creates an debian package which can be extracted with apt."
+    },
+    {
+      "label": "Starter kit of Chitch",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/starter.tar.zst.sha256"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Creates an archive that can be used to set up an independent development of Chitch locally. Also creates a SHA256 from the archive."
+    },
+    {
+      "label": "Delta Diff from pristine",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/delta.patch"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Creates an patch/diff file from the initial pristine source code snapshot."
+    },
+    {
+      "label": "Commit Diff",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/commit.patch"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Creates an patch/diff file from the initial pristine source code snapshot."
+    },
+    {
+      "label": "New pristine (full) snapshot patch",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/pristine.patch"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Creates snapshot of the source code by comparing to the empty commit, in a patch format."
+    },
+    {
+      "label": "File dependencies image",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/dependencies.svg"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "An image of all the dependencies between build files defined in the makefile. Requires `make2graph` and `graphviz` to be installed"
+    },
+    {
+      "label": "Squash Image of source",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "build/chitch.sqsh"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Makes an read-ony mountable image of the source code."
+    },
+    {
+      "label": "PHP Syntax Check",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "php-syntax-check"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Check the syntax for all php files in source/"
+    },
+  ]
+}

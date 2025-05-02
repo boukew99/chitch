@@ -1,0 +1,13 @@
+Source: chitch
+Version: 0.1
+License: EUPL
+Section: web
+Priority: optional
+Maintainer: bokuh
+Package: chitch
+Installed-Size: 532
+Architecture: all
+Depends: apache2, php, libapache2-mod-php
+Homepage: https://chitch.org
+Description: Self-hosted Chitch Green website.
+ Works with Apache Web server.

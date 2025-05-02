@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Enable the default site
+a2ensite 000-default.conf
+
+# Disable the new site
+a2dissite chitch.conf
+
+# Reload Apache to apply changes
+systemctl reload apache2
