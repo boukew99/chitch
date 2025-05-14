@@ -1,0 +1,157 @@
+# Chitch
+Chitch is a new **green dynamic website technology**, specifically build to increase website sustainability. This, in an effort to bring the web closer to [becoming climate neutral](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2050-long-term-strategy_en), get to Net-zero and increase to increase adoption of sustainability by the web. It uses custom techniques and patterns to bring down complexity and also increase the accessibility for easy adoption. It is most efficient for low-traffic websites ranging around 1000 to 50000 visits per month, which is ~99 % of websites. These websites can be considered the **long tail of the web**. Chitch can be considered '[Green Software](https://greensoftware.foundation/)'.
+
+> Redundancy is the enemy of sustainability - [Web Sustainability Guidelines](https://w3c.github.io/sustainableweb-wsg/)
+
+Chitch is an pragmatic project and thus is meant to be used as is on the [Chitch Website](https://chitch.org).
+
+> [!IMPORTANT]
+> This project in an **experimental phase**. Some areas could use more love and bugs are still amongst us!
+
+## Features
+Chitch code is made to be easily revised. Thus it can be relatively easily adjusted for a random web use case which requires sustainability. There are no limitations in place. Locality of information is tightly controlled and thus the context of code helps to inform about functionality of a piece of code. The project declares information in the file tree and is relatively oriented around it. The code is not *particularly* optimized, but it generally achieves more by *doing less work*. [Googles style guide](https://google.github.io/styleguide/htmlcssguide.html) is followed for HTML & CSS.
+- Tiny source code (~35 kB as a brotli archive)
+- VSCode Integrations
+- Semantic HTML (User Accessibility)
+- [Baseline browser](https://web.dev/baseline) functionality (PWA, View transitions, CSS Nesting)
+- Internal developer tools (`tool/`)
+- Saves users battery life (small client load)
+- Concurrent File Stream Read & Write
+- Build for Shared-hosting
+- Authentication & Authorization & Installer
+- Visitor Traffic Analytics
+- Posts and Contact forms
+- Backward compatibility with [IP over Avian Carriers](https://www.rfc-editor.org/rfc/rfc2549).
+
+
+```
+ ______________________________________
+< Terminal usage is optional in Chitch >
+ --------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||--www |
+                ||     ||
+
+```
+
+## Online Development Setup
+The online setup is the easiest way to get started.
+
+Open this project in a [Github Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) (with the green Code / Codespace Button). This opens the project in VSCode.
+
+## Local Development Setup
+Chitch targets the Linux(Unix-like) system, which is the [dominant system on web servers](https://w3techs.com/technologies/overview/operating_system). There are binaries included (`bin/`) for an normalized development setup, but these only work on Linux x86_64. So you need to bring your own PHP binary if you are on another Operating System.
+
+- [Windows PHP Binary](https://dl.static-php.dev/static-php-cli/windows/spc-max/php-8.4.6-cli-win.zip)
+- [MacOS x86_64 architecture binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-x86_64.tar.gz)
+- [MacOS aarch64 architecture binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-aarch64.tar.gz)
+- [Linux aarch64](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-linux-aarch64.tar.gz)
+
+_Binaries are provided by the Static PHP CLI Project, [Sponsor Static PHP CLI ](https://github.com/sponsors/crazywhalecc)_
+
+Place the downloaded binary in `bin/`.
+
+
+## Run
+Now, in VSCode for MacOS and Linux.
+
+1. Select in the top menu bar: `Terminal` / `Run Build Task` or use the shortcut `Ctrl + Shift + B`.
+2. Choose `Test Server` from the menu. This will start a testing server.
+3. The echoed URL is a localhost address (something like http://localhost:9000). Open this in your web browser to see a preview of the site!
+
+Windows:
+1. Run `server.bat` from the file browser to start the server.
+2. Open the echoed URL.
+
+For full compatibility on Windows, use the [officially supported Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about).
+
+## Customize
+You can **edit any file** in Chitch and make it your own. Chitch is an applied project, so you have to **replace some content** before publishing. The default location to start creating your application is in the `include/view/` directory. These hold the web pages which are visualized by the browser. You can try editing `chitch.css` for a new style or add a new `.php` page for new functionality. With the server running you can view the changes you make by refreshing the page in the web browser. _By default (in this projects) VSCode will save the changes once you switch to the web browser, so you don't have to save manually._
+
+By editing Chitch you will have essentially **forked** your own version of Chitch. You can make it compatible to your own requirements. Optionally you can upstream the updates from the stem (Chitch-main) later.
+
+## Publishing
+If you you can publish your own customized version of Chitch. Chitch requires the following features from a hosting setup:
+
+- SSL (Secure Sockets Layer) for usage of HTTPS (Hypertext Transfer Protocol Secure)
+- Mail server, for mail() usage
+- Configurable Webroot/Document-root
+- Green energy (Otherwise it won't run)
+
+### Shared hosting Installation
+Shared hosting is an efficient, cheap ($2) and accessible way to host a website.
+
+Shared hosts are a relatively restricted setup, so in order to make the setup universal, most CMS's deploy into `public_html` directly. Chitch does this as wel, but it takes an more secure approach by changing the Webroot. The steps to install Chitch:
+
+0. Build `Shared Host ZIP` from your source code.
+1. Upload shared-host.zip in `public_html/chitch/`.
+2. Extract shared-host.zip.
+3. Set the Webroot with your **hosts tools** to `public_html/chitch/source/view/`.
+4. Go to the page `install.php` on your domain and follow the instructions there.
+
+#### Shared hosting Updating
+To make an update to the host **atomically* we follow the following steps:
+
+0. Upload the new ZIP besides the old active code, below the site data (`log`).
+1. Extract the ZIP.
+2. Set the Webroot with your **hosts tools** to the new `view` folder.
+3. Move the old `view/upload` folder to the new `view` folder.
+
+This will ensure a seamless switch to the new code. If you keep the old code around you can also switch back to the previous version of the site if something goes wrong.
+
+## Contributing
+Note that [code is **not the only** contribution](https://github.com/readme/featured/open-source-non-code-contributions) that helps Chitch. Usability, graphic design, testing, outreach, accessibility, aesthetics, security, copywriting, documentation, legal, localization, organization, support tasks, these are all disciplines that enhance open source projects.
+Since Chitch is an **open & distributed project**, it is probably worth it to [open an Issue](../../../issues) specifying what you would like to work on and gather feedback as how to continue and find other interested contributors. Please use inclusive language, the simplest solutions are universal.
+
+
+```
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣶⣶⣾⣿⠛⢿⣧⣤⣤⣤⣤⣤⣤⣤⣦⣤⣄⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠃⠀⠀⠈⠻⠿⠿⠛⠋⠉⠉⠉⠉⠉⠉⢉⣽⣿⠿⣷⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⢁⣤⣬⣿⣧⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⡿⠀⠀⠀⠀⠀⣠⣴⣶⠀⠀⠀⠀⢼⣿⠀⠈⠉⣿⡏⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠁⠀⠀⠀⠀⠘⠟⠉⠀⠀⠀⠀⠀⣾⣿⠀⠀⠀⣿⡇⣿⣇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡄⠀⠀⠈⠀⣿⡏
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣦⣀⡀⣰⣿⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣻⣿⡿⠃⠀
+⠀⠀⠀⠀⢀⣤⣶⡿⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠟⠋⠀⠀⠀
+⠀⠀⠀⣰⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⠀⠀⠀⠀⠀
+⠀⠀⣼⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⣼⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀
+⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀
+⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠀⠀⠀⠀⠀⠀
+⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⠀⠀⠀⠀
+⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄⠀⢸⣿⡅⠀⠀⠀⠀⠀
+⣰⣾⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠀⢸⣿⠆⠀⠀⠀⠀⠀
+⣿⣧⣽⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⠃⠀⠀⢸⣿⠇⠀⠀⠀⠀⠀
+⠈⠉⠋⠉⠙⠿⢿⣶⣤⣀⣀⡀⠀⠀⠀⠀⠀⣀⣠⣦⡀⠀⠀⠀⢰⣿⡟⠙⢿⣦⣄⣀⣸⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠻⢿⣦⣤⣤⣾⠟⠀⠀⠀⠉⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+```
+
+_Legend has it a Capybara will visit, if you contribute._
+
+### Project Aim
+The aim of Chitch is that it supports the widest use case for sustainable websites. Then Chitch can be the **superset** from which anyone can take a **subset** to use in their own specialized application. *One example* of such a fork would be Chitch but with binaries compiled for aarch64 architecture, which is generally associated with better power efficiency. However its is not as widely used for development machines and thus is a more specialized use case. *Note, the web code of Chitch runs on both architectures*.
+
+### Technical Constraints
+In order reach the target of being sustainable, there are three constraints:
+
+1. Chitch needs to completely boot-able from Disk. Meaning all of Chitch state should be able to be stored in Disk. This ensures Chitch can hibernate to disk, meaning it won't use any resources (RAM or CPU) if it is not active.
+2. In order to take advantage of hibernation, the host needs to be able to share computing resources.
+3. Chitch needs to be accessible.
+
+Shared hosting satisfies this constraints. However, shared hosting has limitations, which means Chitch also needs to work with the **FTP protocol** to allow the user to upload the website.
+
+## License
+The code is made available with the EUPL, which is a weak copyleft license. By making this green software freely available, people can use it and minimize the climate footprint of the web. The [EUPL is included in text form](../license.txt) for reference, but [the EUPL can be read as a web page](https://eupl.eu/1.2/en/) as well. The license was chosen to promote collaboration by allowing the contributions to remain open.
+
+### Licenses
+"This product includes PHP software, freely available from
+     <http://www.php.net/software/>"
+
+PHP binary build with [static-php-cli](https://github.com/crazywhalecc/static-php-cli).
+
+See `bin/license` for text versions of licenses.

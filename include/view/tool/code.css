@@ -1,0 +1,154 @@
+@import '/theme/chitch.css';
+
+@font-face {
+  font-family: 'Fira Code VF';
+  src: url('/assets/FiraCode-VF.woff2') format('woff2-variations');
+  /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+:root {
+  --monospace-font-stack: 'Fira Code VF', "Courier New", "Courier" monospace;
+}
+
+code {
+
+  font-feature-settings: "calt" 1;
+  /* Enable ligatures for IE 10+, Edge */
+  text-rendering: optimizeLegibility;
+  /* Force ligatures for Webkit, Blink, Gecko */
+  font-family: 'Fira Code VF', monospace;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/* //https://www.php.net/manual/en/tokens.php */
+
+.token-T_OPEN_TAG,
+.token-T_CLOSE_TAG {
+  color: light-dark(#0000ff, #5c7fff);
+  font-weight: bold;
+}
+
+.token-T_STRING,
+.token-T_CONSTANT_ENCAPSED_STRING,
+.token-T_ENCAPSED_AND_WHITESPACE {
+  color: light-dark(#008000, #4dff4d);
+}
+
+.token-T_VARIABLE {
+  color: light-dark(#ff0000, #ff4d4d);
+  font-weight: 500;
+}
+
+.token-T_LNUMBER,
+.token-T_DNUMBER,
+.token-T_NUM_STRING {
+  color: light-dark(#800080, #ff99ff);
+}
+
+.token-T_COMMENT,
+.token-T_DOC_COMMENT {
+  color: light-dark(#808080, #aaaaaa);
+  font-style: italic;
+}
+
+.token-T_FUNCTION,
+.token-T_FN {
+  color: light-dark(#000080, #6699ff);
+  font-weight: bold;
+}
+
+.token-T_CLASS,
+.token-T_INTERFACE,
+.token-T_TRAIT,
+.token-T_ENUM {
+  color: light-dark(#006666, #66cccc);
+  font-weight: bold;
+}
+
+.token-T_IF,
+.token-T_ELSE,
+.token-T_ELSEIF,
+.token-T_SWITCH,
+.token-T_CASE,
+.token-T_DEFAULT {
+  color: light-dark(#660000, #ff6666);
+  font-weight: bold;
+}
+
+.token-T_ECHO,
+.token-T_PRINT,
+.token-T_RETURN {
+  color: light-dark(#996600, #ffcc66);
+}
+
+.token-T_NEW,
+.token-T_CLONE {
+  color: light-dark(#009999, #33ffff);
+}
+
+.token-T_USE,
+.token-T_NAMESPACE,
+.token-T_INCLUDE,
+.token-T_REQUIRE {
+  color: light-dark(#333399, #9999ff);
+}
+
+.token-T_BOOLEAN_AND,
+.token-T_BOOLEAN_OR,
+.token-T_LOGICAL_AND,
+.token-T_LOGICAL_OR,
+.token-T_LOGICAL_XOR {
+  color: light-dark(#cc5500, #ffaa55);
+}
+
+.token-T_OPERATOR,
+.token-T_IS_EQUAL,
+.token-T_IS_NOT_EQUAL,
+.token-T_IS_IDENTICAL,
+.token-T_IS_NOT_IDENTICAL {
+  color: light-dark(#222222, #dddddd);
+}
+
+.token-T_CONSTANT {
+  color: light-dark(#004400, #00cc66);
+}
+
+.token-char {
+  color: light-dark(#000000, #eeeeee);
+}
+
+.token-html {
+  background-color: lightblue;
+  font-style: italic;
+}
+
+.error {
+  background: #ffebee;
+  color: #d32f2f;
+  padding: 10px;
+  border: 1px solid #d32f2f;
+  border-radius: 5px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

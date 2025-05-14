@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test Server",
+      "type": "shell",
+      "command": "./run.php",
+      "group": {
+        "kind": "build"
+      },
+      "problemMatcher": [],
+      "detail": "Uses the built-in PHP server. Opens the address of the starting server in the browser."
+    },
+    {
+      "label": "Build All",
+      "type": "shell",
+      "command": "bin/php",
+      "args": [
+        "pack.php"
+      ],
+      "group": {
+        "kind": "build"
+      },
+      "detail": "Makes all files in 'build/' including a ZIP for extraction over FTP on a Shared host server"
+    },
+  ]
+}
