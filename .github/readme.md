@@ -1,15 +1,13 @@
 # Chitch
-Chitch is a new **green dynamic website technology**, specifically build to increase website sustainability. This, in an effort to bring the web closer to [becoming climate neutral](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2050-long-term-strategy_en), get to Net-zero and increase to increase adoption of sustainability by the web. It uses custom techniques and patterns to bring down complexity and also increase the accessibility for easy adoption. It is most efficient for low-traffic websites ranging around 1000 to 50000 visits per month, which is ~99 % of websites. These websites can be considered the **long tail of the web**. Chitch can be considered '[Green Software](https://greensoftware.foundation/)'.
+Chitch is a new **green dynamic website technology**, specifically build to increase website sustainability. This, in an effort to bring the web closer to [becoming climate neutral](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2050-long-term-strategy_en), get to Net-zero and increase to increase adoption of sustainability by the web. It uses custom techniques and patterns to bring down complexity and also increase the accessibility for easy adoption. It is most efficient for low-traffic websites ranging around 1000 to 50000 visits per month, which is ~99 % of websites. These websites can be considered the **long tail of the web**. Chitch can be considered '[Green Software](https://greensoftware.foundation/)'. It is an pragmatic project and thus is meant to be used by the community as is on the [Chitch Website](https://chitch.org).
 
-> Redundancy is the enemy of sustainability - [Web Sustainability Guidelines](https://w3c.github.io/sustainableweb-wsg/)
-
-Chitch is an pragmatic project and thus is meant to be used as is on the [Chitch Website](https://chitch.org).
+The [Web Sustainability Guidelines by W3C](https://w3c.github.io/sustainableweb-wsg/) are taken as a guideline in this project and to measure success in the sustainability goal.
 
 > [!IMPORTANT]
 > This project in an **experimental phase**. Some areas could use more love and bugs are still amongst us!
 
 ## Features
-Chitch code is made to be easily revised. Thus it can be relatively easily adjusted for a random web use case which requires sustainability. There are no limitations in place. Locality of information is tightly controlled and thus the context of code helps to inform about functionality of a piece of code. The project declares information in the file tree and is relatively oriented around it. The code is not *particularly* optimized, but it generally achieves more by *doing less work*. [Googles style guide](https://google.github.io/styleguide/htmlcssguide.html) is followed for HTML & CSS.
+Chitch code is made to be easily revised. Thus it can be relatively easily adjusted for a random web use case which requires sustainability. There are no limitations in place. Locality of information is tightly controlled and thus the context of code helps to inform about functionality of a piece of code. The project declares information in the file tree and is relatively oriented around it. The code is not *particularly* optimized, but it generally achieves more by *doing less work*. [Googles style guide for HTML & CSS](https://google.github.io/styleguide/htmlcssguide.html)is followed .
 - Tiny source code (~35 kB as a brotli archive)
 - VSCode Integrations
 - Semantic HTML (User Accessibility)
@@ -39,19 +37,22 @@ Chitch code is made to be easily revised. Thus it can be relatively easily adjus
 ## Online Development Setup
 The online setup is the easiest way to get started.
 
-Open this project in a [Github Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) (with the green Code / Codespace Button). This opens the project in VSCode.
+1. Open this project in a [Github Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) (with the green Code / Codespace Button). This opens the project in VSCode.
+
+2. Then symlink  against the global PHP with `ln -s $(which php) bin/` in the terminal. 
 
 ## Local Development Setup
-Chitch targets the Linux(Unix-like) system, which is the [dominant system on web servers](https://w3techs.com/technologies/overview/operating_system). There are binaries included (`bin/`) for an normalized development setup, but these only work on Linux x86_64. So you need to bring your own PHP binary if you are on another Operating System.
+Chitch targets the Linux(Unix-like) system, which is the [dominant system on web servers](https://w3techs.com/technologies/overview/operating_system). Development however happens on multiple Operating Systems. For development only a the programming language binary is needed, which in this case is PHP. You can download a static version of PHP for your operating system:
 
 - [Windows PHP Binary](https://dl.static-php.dev/static-php-cli/windows/spc-max/php-8.4.6-cli-win.zip)
-- [MacOS x86_64 architecture binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-x86_64.tar.gz)
-- [MacOS aarch64 architecture binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-aarch64.tar.gz)
-- [Linux aarch64](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-linux-aarch64.tar.gz)
+- [MacOS x86_64 architecture PHP binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-x86_64.tar.gz)
+- [MacOS aarch64 (ARM) architecture PHP binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-macos-aarch64.tar.gz)
+- [Linux aarch64 architecture  PHP binary](https://dl.static-php.dev/static-php-cli/common/php-8.4.6-cli-linux-aarch64.tar.gz)
+- [Linux x86_64 architecture PHP binary (Custom)](https://github.com/boukew99/chitch/releases/download/supplementary/php.tar.xz)
 
 _Binaries are provided by the Static PHP CLI Project, [Sponsor Static PHP CLI ](https://github.com/sponsors/crazywhalecc)_
 
-Place the downloaded binary in `bin/`.
+Extract the downloaded package and place the binary in `bin/`.
 
 
 ## Run
@@ -60,6 +61,9 @@ Now, in VSCode for MacOS and Linux.
 1. Select in the top menu bar: `Terminal` / `Run Build Task` or use the shortcut `Ctrl + Shift + B`.
 2. Choose `Test Server` from the menu. This will start a testing server.
 3. The echoed URL is a localhost address (something like http://localhost:9000). Open this in your web browser to see a preview of the site!
+
+MacOS:
+You may need to [enable the binary to be allowed to run](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
 
 Windows:
 1. Run `server.bat` from the file browser to start the server.
@@ -81,7 +85,7 @@ If you you can publish your own customized version of Chitch. Chitch requires th
 - Green energy (Otherwise it won't run)
 
 ### Shared hosting Installation
-Shared hosting is an efficient, cheap ($2) and accessible way to host a website.
+Shared hosting is an efficient, cheap and accessible way to host a website.
 
 Shared hosts are a relatively restricted setup, so in order to make the setup universal, most CMS's deploy into `public_html` directly. Chitch does this as wel, but it takes an more secure approach by changing the Webroot. The steps to install Chitch:
 
@@ -147,11 +151,3 @@ Shared hosting satisfies this constraints. However, shared hosting has limitatio
 
 ## License
 The code is made available with the EUPL, which is a weak copyleft license. By making this green software freely available, people can use it and minimize the climate footprint of the web. The [EUPL is included in text form](../license.txt) for reference, but [the EUPL can be read as a web page](https://eupl.eu/1.2/en/) as well. The license was chosen to promote collaboration by allowing the contributions to remain open.
-
-### Licenses
-"This product includes PHP software, freely available from
-     <http://www.php.net/software/>"
-
-PHP binary build with [static-php-cli](https://github.com/crazywhalecc/static-php-cli).
-
-See `bin/license` for text versions of licenses.
