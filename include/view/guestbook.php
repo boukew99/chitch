@@ -14,7 +14,7 @@ session_start();
 <title>Guestbook</title>
 <script defer src="/visit.js"></script>
 <style>
-    .quote {
+    blockquote {
         font-style: italic;
         transform: rotate(-2deg);
         margin: 1em 0;
@@ -23,7 +23,7 @@ session_start();
         background: #f9f9f9;
     }
 
-    .quote cite {
+    blockquote cite {
         display: block;
         text-align: right;
         font-style: normal;
@@ -89,11 +89,11 @@ session_start();
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($error)) {
                 if ($ishuman && $quote && $alias) {
                     $content = <<<HTML
-            <blockquote class="quote">
-                <p>{$quote}</p>
-                <cite>- {$alias}</cite>
-            </blockquote>
-            HTML;
+                    <blockquote>
+                        <p>{$quote}</p>
+                        <cite>- {$alias}</cite>
+                    </blockquote>
+                    HTML;
                     write('guestbook', $content);
                     $_SESSION['guestbook_posted'] = true;
                     echo '<p id="feedback">Thank you for your contribution! Your quote has been added.</p>';

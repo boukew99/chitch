@@ -121,7 +121,7 @@ $installkey = read('install');
             mail(
                 $post['email'],
                 'Chitch Install',
-                'You have been added as the first user to Chitch. Your username is ' . $post['username'] . ". Don't forget to set your webroot to 'public' folder, beneath 'install.php', so the install page cannot be accesses ever again!",
+                'You have been added as the first user to Chitch. Your username is ' . $post['username'] . ".",
                 'From: login@chitch.org',
                 '-f login@chitch.org'
             );

@@ -15,7 +15,7 @@ php_sapi_name() === "cli-server" &&
 
 function log_path(string $file = ""): string
 {
-    $base = dirname(__DIR__, 1) . "/log/";
+    $base = dirname(__DIR__, 1) . "/database/";
     return $file ? $base . $file . ".html" : $base;
 }
 
@@ -283,49 +283,40 @@ function foot(): string
         $loggedin = ($_SESSION["authorized"] ?? "") === $_SERVER["HTTP_HOST"];
         echo p($loggedin
             ? "You are logged into a session as <mark>$username</mark> with $permissions permission."
-            : a('Login to Chitch', '/session/login.php')
+            : a('Login to Chitch', '/login.php')
         );
     }
-?>
-
+    echo <<<HTML
     <p>&copy; Copyright 2025. All rights reserved, Chitch.org
         <img src='/assets/icon.svg' alt='site logo' width='16' height='16' />. Rendered today on <?= date("g:i a") ?> in Germany. Hosted with green energy.
     </p>
+    HTML;
 
-    <?php
-    $session_path = session_save_path();
-    $online_users = count(glob("$session_path/sess_*"));
-    echo "<p>~$online_users user(s) online!</p>";
-    ?>
+    $online = count(glob(session_save_path() . "/sess_*"));
+    echo "<p>~$online user(s) online!</p>";
 
-    <nav>
-        <ul>
-            <li><a href="#">Go to top</a>
-            <li><a href="/">Home</a>
-            <li><a href="/news.php">Blog / Articles</a>
-            <li><a href="/guestbook.php">Guestbook</a>
-            <li><a href="/contact.php">Contact</a>
-            <li><a href="/traffic.php">Site Traffic</a>
-        </ul>
+    $nav = tree("li", fn($x) => "<a href='$x[1]'>$x[0]</a>", [
+        ["Go to top", "#"],
+        ["Home", "/"],
+        ["Blog / Articles", "/news.php"],
+        ["Guestbook", "/guestbook.php"],
+        ["Contact", "/contact.php"],
+        ["Site Traffic", "/traffic.php"],
+    ]);
 
-        <?php if (php_sapi_name() === "cli-server"):
-            $pages = function ($directory = ""): string {
-                $pages = glob($_SERVER["DOCUMENT_ROOT"] . $directory . "/*.php");
-                $pages = array_map(fn($page) => basename($page, ".php"), $pages);
-                $anchors = array_map(fn($page) => "<li><a href='$directory/$page.php'>/$page</a>", $pages);
-                return implode(" ", $anchors);
-            }; ?>
-            <ul>
-                <li>Tools:
-                    <ul>
-                        <?= $pages("/tool") ?>
-                    </ul>
-                </li>
-            </ul>
-        <?php endif; ?>
-    </nav>
+    echo "<nav><ul>$nav</ul>";
 
-<?php
+    if (php_sapi_name() === "cli-server") {
+        $tools = tree("li", fn($p) => "<a href='/tool/$p.php'>/$p</a>",
+            array_map(fn($f) => basename($f, ".php"),
+                glob($_SERVER["DOCUMENT_ROOT"] . "/tool/*.php")
+            )
+        );
+        echo "<ul><li>Tools:<ul>$tools</ul></li></ul>";
+    }
+
+    echo "</nav>";
+
     return ob_get_clean(); // 🎁 give back da string
 }
 

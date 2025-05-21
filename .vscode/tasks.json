@@ -2,26 +2,24 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Test Server",
+      "label": "Test Server MacOS/Linux",
       "type": "shell",
-      "command": "./run.php",
+      "command": "./server.sh",
       "group": {
         "kind": "build"
       },
       "problemMatcher": [],
-      "detail": "Uses the built-in PHP server. Opens the address of the starting server in the browser."
+      "detail": "Starts the built-in PHP server for MacOS/Linux Operating System."
     },
     {
-      "label": "Build All",
+      "label": "Test Server Windows",
       "type": "shell",
-      "command": "bin/php",
-      "args": [
-        "pack.php"
-      ],
+      "command": "./server.bat",
       "group": {
         "kind": "build"
       },
-      "detail": "Makes all files in 'build/' including a ZIP for extraction over FTP on a Shared host server"
+      "problemMatcher": [],
+      "detail": "Starts the built-in PHP server for Windows Operating System."
     },
   ]
 }

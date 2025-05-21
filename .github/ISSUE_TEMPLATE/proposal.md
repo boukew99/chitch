@@ -1,5 +1,5 @@
 ---
-name: 'Proposal: What I Want to Work On'
+name: 'Proposal: What I Would like to see'
 about: Pitch an idea or task before starting — get feedback & find collabs
 title: ''
 labels: ''
@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## 💡 What I Want to Work On
+## 💡 What I Would like to see
 
 _A short description of the idea, task, or initiative you want to explore._
 

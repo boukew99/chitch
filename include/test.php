@@ -3,8 +3,8 @@
 
 # ini_set('open_basedir', dirname(__DIR__,2) ); // Restrict access to test for total containment🔒
 ini_set("sendmail_path", __DIR__ . "/mail.php");
-ini_set("sys_temp_dir", dirname(__DIR__, 1) . "/log/");
-ini_set("session.save_path", dirname(__DIR__, 1) . "/log");
+ini_set("sys_temp_dir", dirname(__DIR__, 1) . "/database/");
+ini_set("session.save_path", dirname(__DIR__, 1) . "/database");
 
 #error_reporting(E_ALL);
 

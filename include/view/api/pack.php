@@ -1,5 +1,7 @@
 <?php
 # Chitch © its Maintainers 2025, Licensed under the EUPL
+header('Content-Type: text/plain; charset=utf-8');
+chdir('../../../'); # Sets project root as dir
 
 function build(string $output, callable $recipe, string ...$dependencies): string {
     if (!needsBuild($output, $dependencies)) {

@@ -105,8 +105,8 @@ require('../chitch.php');
   </section>
 
   <section id="small-sized">
-    <h2>Download in under 15 minutes</h2>
-    <p>Into your mind that is. The token count sits around the 3600, which with an average reading speed of 238 words per minute should take about 15 minutes. The code itself is downloaded instantly, since it is under 500 kB. Halstead Complexity Measure predicts that this results in less bugs. And for security analyst this is a dream to audit.
+    <h2>Small Footprint</h2>
+    <p>Chitch packs small! very small! About 35 kilo bytes when archived and compressed. And for reviewing the code: the token count sits around the 3600, which with an average reading speed of 238 words per minute should take about 15 minutes to read. And with less code there will be less bugs. For security analyst this is a dream to audit.
     <blockquote>Even if your Wi-Fi is running on hamster power, this thing will stay zippy and sharp.</blockquote>
   </section>
 
@@ -179,8 +179,8 @@ require('../chitch.php');
     <p>Although Chitch eventually wants to be accessible to casual users, for now it requires still some programmer knowledge to operate. You can start by
       <a href="https://github.com/boukew99/chitch">Downloading the project from Github!</a> (& Star the repo). Try out the code and contribute to help progress Chitch.
     <p>Chitch also is open to other kinds of contributions outside of code.
-    <p>Share your website in the <a href"guestbook.php">Guestbook</a> if you made it with Chitch!
-    <p>Read up on the <a href"https://w3c.github.io/sustainableweb-wsg/">Web Sustainability Guidelines</a>
+    <p>Share your website in the <a href="guestbook.php">Guestbook</a> if you made it with Chitch!
+    <p>Read up on the <a href="https://w3c.github.io/sustainableweb-wsg/">Web Sustainability Guidelines</a>
   </section>
 </main>
 <footer>
