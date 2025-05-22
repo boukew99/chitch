@@ -1,9 +1,9 @@
 <?php
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# © 2025 Chitch-Maintainers, Licensed under the EUPL
 
 require('../../chitch.php');
 
-use function Chitch\{getfiles, tokenize};
+use function Chitch\{getfiles, tokenize, tree};
 
 // Directory to scan for PHP files
 $directory = '../../'; // Adjust as needed
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Read file content if not already set
 $content ??= file_get_contents($file);
-$highlighted = tokenize($content); // Generate syntax-highlighted markup
+$highlighted = tree('li', fn($x) => ($x),  explode(PHP_EOL, tokenize($content))); // Generate syntax-highlighted markup
 $metadata = get_content_metadata($content);
 
 ?>
@@ -98,6 +98,11 @@ $metadata = get_content_metadata($content);
         font-size: 0.9em;
         color: #555;
     }
+
+    pre code ol li {
+        list-style-position: inside;
+        /* fix */
+    }
 </style>
 
 <main>
@@ -115,16 +120,16 @@ $metadata = get_content_metadata($content);
             </label>
             <button type="submit">Load</button>
         </form>
-    </section>
+        <figure>
+            <figcaption>Editing: <?= htmlspecialchars($file) ?></figcaption>
+            <pre contenteditable=false spellcheck><code><ol><?= $highlighted ?></ol></code></pre>
+            <p class="metadata">
+                <?= $metadata['lines'] ?> lines,
+                <?= $metadata['words'] ?> words,
+                <?= $metadata['characters'] ?> characters
+            </p>
+        </figure>
 
-    <section>
-        <h2>Editing: <?= htmlspecialchars($file) ?></h2>
-        <pre contenteditable=false spellcheck><code><?= $highlighted ?></code></pre>
-        <p class="metadata">
-            <?= $metadata['lines'] ?> lines,
-            <?= $metadata['words'] ?> words,
-            <?= $metadata['characters'] ?> characters
-        </p>
         <form method="post">
             <label>Live code:
                 <code><textarea name="content" id="editor"><?= htmlspecialchars($content) ?></textarea></code>

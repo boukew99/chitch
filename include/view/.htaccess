@@ -1,4 +1,4 @@
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# © 2025 Chitch-Maintainers, Licensed under the EUPL
 
 # 🛑 Error Pages
 ErrorDocument 400 /session/error.php?code=400

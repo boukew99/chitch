@@ -1,5 +1,5 @@
 <?php
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# © 2025 Chitch-Maintainers, Licensed under the EUPL
 
 require("../chitch.php");
 
@@ -62,6 +62,22 @@ session_start();
                             ) ?>" />
             </label>
 
+            <fieldset>
+                <?php $urgency = 'low'; ?>
+                <legend>Urgency:</legend>
+                <label>
+                    <input type="radio" name="urgency" value="low" checked />
+                    Low
+                </label>
+                <label>
+                    <input type="radio" name="urgency" value="medium" />
+                    Medium
+                </label>
+                <label>
+                    <input type="radio" name="urgency" value="high" />
+                    High
+            </fieldset>
+
             <label aria-hidden="true" class="user-cannot-see" style="display:none;">
                 Nickname:
                 <?php $bot =
@@ -78,12 +94,10 @@ session_start();
 
         <?php // Handle POST requests for submitting messages
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && $subject && $message && $email && $name) {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && $subject && $message && $email && $name && $urgency) {
             ob_start(); ?>
-            <details id=<?= uniqid() ?> class=<?= empty($nickname)
-                                                    ? "human"
-                                                    : "bot" ?>>
-                <summary><?= $subject ?></summary>
+            <details id=<?= uniqid() ?> class=<?= empty($nickname) ? "human" : "bot" ?> >
+                <summary class="<?= $urgency ?>"><?= $subject ?></summary>
                 <article>
                     <h3><?= $subject ?></h3>
                     <time>post-time: <?= time() ?></time>
@@ -99,9 +113,7 @@ session_start();
             write("messages", $article);
             //notification?
 
-            echo '<ins id="received">Message successfully received 📮. Thank you. Seen as: ' .
-                $article .
-                "</ins>";
+            echo '<ins id="received">Message successfully received 📮. Thank you. </ins>';
         } else {
             echo p('No Valid Input provided.', 'class="error"');
         }

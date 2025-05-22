@@ -1,3 +1,4 @@
+// © 2025 Chitch-Maintainers, Licensed under the EUPL
 // Establish a cache name
 const cacheName = 'ChitchCache1';
 

@@ -1,6 +1,6 @@
 #!../bin/php
 <?php
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# © 2025 Chitch-Maintainers, Licensed under the EUPL
 
 # used for local mail() testing, set in php.ini as sendmail_path
 require('chitch.php');

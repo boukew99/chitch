@@ -1,5 +1,5 @@
 <?php
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# © 2025 Chitch-Maintainers, Licensed under the EUPL
 require('../chitch.php');
 ?>
 <?= Chitch\head(); ?>

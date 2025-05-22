@@ -1,5 +1,5 @@
 <?php
-# Chitch © its Maintainers 2025, Licensed under the EUPL
+# Copyright 2025 Chitch-Maintainers, Licensed under the EUPL
 
 # ini_set('open_basedir', dirname(__DIR__,2) ); // Restrict access to test for total containment🔒
 ini_set("sendmail_path", __DIR__ . "/mail.php");
