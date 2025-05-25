@@ -69,11 +69,9 @@ $installkey = read('install');
         <h2>First user</h2>
         <p>In order to create the first user securely, follow these steps.
         <ol>
-            <li>Create 'logs' folder in the directory where you zip file is (probably)</li>
-            <li>Reload this page
-            <li>Open newly generated file'logs/chitch.key'
-            <li>Copy the first line code in that file.
-            <li>Fill in the form underneath and insert the code.
+            <li>Open newly generated file 'database/install.html'
+            <li>Copy the first line of code in that file.
+            <li>Paste that in the form underneath.
             <li>
         </ol>
         <form method="post">
