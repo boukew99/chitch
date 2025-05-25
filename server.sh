@@ -20,7 +20,7 @@ export PHP_CLI_SERVER_WORKERS=4
 "$PHP_BIN" \
   --php-ini include/php.ini \
   --server "$ADDRESS" \
-  --docroot include/view 2> bin/server.log
+  --docroot include/view 2> database/server.log
 
 # sudo ADDRESS=0.0.0.0:80 ./server.sh
 # Localarea server for mobile access
