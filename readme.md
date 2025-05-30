@@ -40,11 +40,13 @@ Chitch code is made to be easily revised. Thus it can be relatively easily adjus
 ## Local Setup
 Chitch is fully self-contained, and thus you only need to extract it to run it. You can get a Chitch build specifically for your operating system:
 
-- [Windows](https://github.com/boukew99/chitch/releases/download/supplementary/php.zip)
-- [MacOS x86_64](https://github.com/boukew99/chitch/releases/download/supplementary/php-x86_64-darwin.tar.gz)
-- [MacOS aarch64 (ARM)](https://github.com/boukew99/chitch/releases/download/supplementary/php-aarch64-darwin.tar.gz)
-- [Linux x86_64](https://github.com/boukew99/chitch/releases/download/supplementary/php-x86_64-linux.tar.xz)
-- [Linux aarch64](https://github.com/boukew99/chitch/releases/download/supplementary/php-aarch64-linux.tar.xz)
+- [Windows](https://github.com/boukew99/chitch/releases/download/stable/chitch-windows.zip)
+- [MacOS x86_64](https://github.com/boukew99/chitch/releases/download/stable/chitch-x86_64-darwin.tar.gz)
+- [MacOS aarch64 (ARM)](https://github.com/boukew99/chitch/releases/download/stable/chitch-aarch64-darwin.tar.gz)
+- [Linux x86_64](https://github.com/boukew99/chitch/releases/download/stable/chitch-x86_64-linux.tar.xz)
+- [Linux aarch64](https://github.com/boukew99/chitch/releases/download/stable/chitch-aarch64-linux.tar.xz)
+
+These bundles have a stable version of Chitch. For the latest changes run `git pull`.
 
 ## Run
 
