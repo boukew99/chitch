@@ -49,8 +49,8 @@ body {
   color: var(--font-color);
   margin: 0;
   background: var(--accent-background);
-  background: url("/assets/bubbles.svg"), var(--accent-background);
-  background: url("assets/bubbles.svg"), linear-gradient(to bottom right, var(--accent-background), var(--end));
+  background: url("http://cdn.chitch.org/bubbles.svg"), var(--accent-background);
+  background: url("http://cdn.chitch.org/bubbles.svg"), linear-gradient(to bottom right, var(--accent-background), var(--end));
   /* scroll */
   background-attachment: fixed;
   margin: 0 auto;
@@ -78,7 +78,7 @@ body {
   }
 
   &::after {
-    content: url('/assets/icon.svg');
+    content: url('/icon.svg');
     position: fixed;
     bottom: 0.1em;
     right: 0.1em;
@@ -101,8 +101,8 @@ body {
 header,
 footer {
   background: var(--accent-background);
-  background: url("/assets/bubbles.svg"), var(--accent-background);
-  background: url("/assets/bubbles.svg"), linear-gradient(to bottom right, var(--accent-background), var(--end));
+  background: url("http://cdn.chitch.org/bubbles.svg"), var(--accent-background);
+  background: url("http://cdn.chitch.org/bubbles.svg"), linear-gradient(to bottom right, var(--accent-background), var(--end));
 }
 
 header,

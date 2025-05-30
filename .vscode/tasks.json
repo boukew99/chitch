@@ -14,7 +14,7 @@
     {
       "label": "Test Server Windows",
       "type": "shell",
-      "command": "./server.bat",
+      "command": ".\\server.bat",
       "group": {
         "kind": "build"
       },

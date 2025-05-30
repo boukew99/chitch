@@ -6,6 +6,7 @@ require('../chitch.php');
 <link rel="manifest" href="/manifest.json">
 <title>Chitch Green Website Builder</title>
 <script defer src="/visit.js"></script>
+
 <meta
   content='Chitch is a new green software which aims to reduce redundancy in order to reduce the climate impact of websites on a large scale. This helps move the web to net-zero.'
   name='description' />
@@ -73,10 +74,18 @@ require('../chitch.php');
   <h2 class="gradientheading">Green Website builder</h2>
   <p>Chitch is a new green software which aims to reduce redundancy in order to reduce the climate impact of websites on
     a large scale. Make your website an eco-friendly website! This helps move the web to net-zero.
-  <details>
-    <summary>Table of Contents</summary>
-    <nav id="toc"></nav>
-  </details>
+
+  <section id="download">
+    <h2>Download Chitch</h2>
+    <p>Chitch is available as a zip file. Just extract and run. It is designed to be as simple as possible, so you can
+      get started quickly. The zip file contains everything you need to run Chitch.
+    <p><a href="/chitch.zip" class="button">Download Chitch</a>
+    <p>Or clone the repository from GitHub:
+    <pre><code class="command">git clone https://github.com/boukew99/chitch.git</code></pre>
+    <p>Chitch is open source and licensed under the <a href="#license">EUPL</a>. This means you can use it for free,
+      and you can also contribute to the project if you want. We welcome contributions from anyone who wants to help
+      make Chitch better.
+  </section>
 </header>
 
 <main>
@@ -107,7 +116,12 @@ require('../chitch.php');
   <section id="small-sized">
     <h2>Small Footprint</h2>
     <p>Chitch packs small! very small! About 35 kilo bytes when archived and compressed. And for reviewing the code: the token count sits around the 3600, which with an average reading speed of 238 words per minute should take about 15 minutes to read. And with less code there will be less bugs. For security analyst this is a dream to audit.
-    <blockquote>Even if your Wi-Fi is running on hamster power, this thing will stay zippy and sharp.</blockquote>
+    <p>More official Halstead metrics indicate a low complexity and high maintainability. Compared to a popular CMS, the same simple calculation shows, it takes ~600 times less effort to understand Chitch and that Chitch has 71 times less bugs.
+
+    <blockquote>
+      If we wish to count lines of code, we should not regard them as "lines produced" but as "lines spent."
+      <cite>— Edsger Dijkstra</cite>
+    </blockquote>
   </section>
 
   <section id="reliable-processes">
@@ -116,11 +130,17 @@ require('../chitch.php');
     <blockquote>Your website could run on a potato-powered server and still load faster than the average CMS.</blockquote>
   </section>
 
+  <section id="low-resource">
+    <h2>Low Computational Resources</h2>
+    <p>Chitch is designed to run on low-end hardware, such as a Raspberry Pi (Zero). It demands very little in terms of RAM and CPU. Its main bottleneck will be read and write speeds of the Disk. But good Disk is long-term and sustainable investment. This also means that Chitch can run on a wide range of devices, from smartphones to desktop computers. Chitch is also designed to be energy-efficient, which means that it can run on low-power devices without consuming too much energy.
+  </section>
+
   <section id="low-traffic">
     <h2>Optimized for Low-Traffic</h2>
     <p>Chitch is designed specifically for low-traffic websites, typically experiencing between 1,000 and 10,000 visits per month. A key characteristic of these sites is significant server idle time, often upwards of 99%. Chitch addresses this efficiently by minimizing resource consumption when the server is inactive, leading to significant cost savings and a reduced environmental footprint.
 
     <p>Chitch achieves its high efficiency through its <strong>100% persistent architecture</strong>. All processes are "fire and forget". The system quickly and efficiently boots from disk on demand, eliminating the need for continuously running processes and minimizing resource consumption during idle periods. This approach reduces operational costs and energy consumption.
+    <blockquote>Even if your Wi-Fi is running on hamster power, this thing will stay zippy and sharp.</blockquote>
   </section>
 
   <section id="simple-visual-deployment">
@@ -146,7 +166,7 @@ require('../chitch.php');
     <h2>Baseline Web browsers Compatibility</h2>
     <p>Chitch is a new technology and thus makes use of the latest features in the browser. By supporting <a href="https://web-platform-dx.github.io/web-features/">Baseline browsers</a> we ensure a wide compatibility across browsers, but also enable ourself to use new enhancements on the client side. This is done in a progressive manner wherever possible to support older browsers as well.
     <figure>
-      <img src="/assets/baseline-wordmark.svg" alt="baseline logo">
+      <img src="http://cdn.chitch.org/baseline-wordmark.svg" alt="baseline logo">
     </figure>
   </section>
 
@@ -158,7 +178,7 @@ require('../chitch.php');
   <section>
     <figure>
       <figcaption>Capybara Mascot</figcaption>
-      <img src="/assets/capybara.svg" alt="Capybara Mascot" />
+      <img src="http://cdn.chitch.org/capybara.svg" alt="Capybara Mascot" />
     </figure>
 
     <p>The capybara is known for its friendly nature on the internet. It lives peacefully among other animals and is often seen as a symbol of harmony and coexistence. Chitch reverberates that by deeply harmonizing with other external programs and systems and staying inclusive.
@@ -170,7 +190,7 @@ require('../chitch.php');
     <p>Very little CO2 was used to transfer this page. Measure it yourself with <a href="https://www.websitecarbon.com/website/chitch-org/">Website Carbon Calculator</a>.
     <p>Green energy is used to host Chitch!
 
-      <img src="/assets/green-host.png" alt="This website runs on green hosting - verified by thegreenwebfoundation.org" width="200px" height="95px">
+      <img src="http://cdn.chitch.org/green-host.png" alt="This website runs on green hosting - verified by thegreenwebfoundation.org" width="200px" height="95px">
 
   </section>
 

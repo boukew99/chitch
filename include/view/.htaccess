@@ -15,6 +15,12 @@ ErrorDocument 500 /session/error.php?code=500
     RewriteCond %{REQUEST_URI} \.php$ [NC]
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+
+    # Route if custom style exists
+    RewriteCond %{REQUEST_URI} ^/chitch.css$
+    RewriteCond %{DOCUMENT_ROOT}/upload/style.css -f
+    RewriteRule ^chitch.css$ /upload/style.css [L]
+
     # ✨ Query Shortcuts
     RewriteCond %{REQUEST_URI} ^(/)$
     RewriteCond %{QUERY_STRING} ^(blog)$ [NC]

@@ -67,3 +67,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $selected_file) {
 <footer>
   <?= Chitch\foot() ?>
 </footer>
+<?php # Split me <!-- COMMIT --> with name=content[] ?>

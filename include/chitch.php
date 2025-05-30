@@ -257,7 +257,7 @@ function head(): string
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10424b" />
 
     <link rel="stylesheet" href="/chitch.css?v=1" />
-    <link rel="icon" href="/assets/icon.svg?1" />
+    <link rel="icon" href="/icon.svg?1" />
     <script defer src="/ensue.js"></script>
 
     <meta name="generator" content="Chitch" />
@@ -288,32 +288,15 @@ function foot(): string
     }
     echo <<<HTML
     <p>&copy; Copyright 2025. All rights reserved, Chitch.org
-        <img src='/assets/icon.svg' alt='site logo' width='16' height='16' />. Rendered today on <?= date("g:i a") ?> in Germany. Hosted with green energy.
+        <img src='/icon.svg' alt='site logo' width='16' height='16' />. Rendered today on <?= date("g:i a") ?> in Germany. Hosted with green energy.
     </p>
     HTML;
 
     $online = count(glob(session_save_path() . "/sess_*"));
     echo "<p>~$online user(s) online!</p>";
 
-    $nav = tree("li", fn($x) => "<a href='$x[1]'>$x[0]</a>", [
-        ["Go to top", "#"],
-        ["Home", "/"],
-        ["Blog / Articles", "/news.php"],
-        ["Guestbook", "/guestbook.php"],
-        ["Contact", "/contact.php"],
-        ["Site Traffic", "/traffic.php"],
-    ]);
 
-    echo "<nav><ul>$nav</ul>";
-
-    if (php_sapi_name() === "cli-server") {
-        $tools = tree("li", fn($p) => "<a href='/tool/$p.php'>/$p</a>",
-            array_map(fn($f) => basename($f, ".php"),
-                glob($_SERVER["DOCUMENT_ROOT"] . "/tool/*.php")
-            )
-        );
-        echo "<ul><li>Tools:<ul>$tools</ul></li></ul>";
-    }
+    echo read('footer');
 
     echo "</nav>";
 

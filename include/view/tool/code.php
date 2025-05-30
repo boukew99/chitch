@@ -8,7 +8,6 @@ use function Chitch\{getfiles, tokenize};
 ?>
 <?= Chitch\head(); ?>
 <link rel="stylesheet" href="code.css" />
-
 <title>Source Code</title>
 <style>
     .token-T_INLINE_HTML {
@@ -54,8 +53,8 @@ use function Chitch\{getfiles, tokenize};
     }
     ?>
 
-    <section id="tokenStats">
-        <h2>Token Statistics</h2>
+    <details id="tokenStats">
+        <summary>Token Statistics</summary>
         <dl id="statsContent"></dl>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
@@ -75,7 +74,7 @@ use function Chitch\{getfiles, tokenize};
                 document.getElementById('statsContent').innerHTML = statsHtml;
             });
         </script>
-    </section>
+    </details>
 
 </main>
 

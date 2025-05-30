@@ -1,8 +1,8 @@
-@import '/theme/chitch.css';
+@import '/chitch.css';
 
 @font-face {
   font-family: 'Fira Code VF';
-  src: url('/assets/FiraCode-VF.woff2') format('woff2-variations');
+  src: url("http://cdn.chitch.org/woff2/FiraCode-VF.woff2") format('woff2-variations');
   /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
   font-weight: 300 700;
   font-style: normal;
@@ -13,7 +13,6 @@
 }
 
 code {
-
   font-feature-settings: "calt" 1;
   /* Enable ligatures for IE 10+, Edge */
   text-rendering: optimizeLegibility;

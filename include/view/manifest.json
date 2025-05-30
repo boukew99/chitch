@@ -1,5 +1,5 @@
 {
-  "name": "Chitch the Green Website Experiment",
+  "name": "Chitch the Green Website",
   "short_name": "Chitch",
   "description": "Offline functionality for this website.",
   "start_url": "/",
@@ -8,7 +8,7 @@
   "theme_color": "orange",
   "icons": [
     {
-      "src": "/assets/icon.svg",
+      "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
