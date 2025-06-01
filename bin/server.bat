@@ -1,5 +1,8 @@
 @echo off
 
+:: Set working directory to the script's location
+cd /d "%~dp0"
+
 echo.
 echo Using PHP binary: bin/php.exe
 echo Development Server started at http://localhost:9000
@@ -8,7 +11,7 @@ echo.
 
 start "" "http://localhost:9000"
 
-bin\php.exe -S localhost:9000 --php-ini include\php.ini --docroot include\view 2> database/server.log
+.\php.exe -S localhost:9000 --php-ini .\php.ini --docroot ..\include\view 2> server.log
 
 pause
 REM Do not auto-close window

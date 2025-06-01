@@ -1,2 +1,5 @@
 *
 !.gitignore
+!server.bat
+!server.sh
+!php.ini
