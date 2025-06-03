@@ -6,9 +6,9 @@ cd "$(dirname "$0")"
 ARCH="${ARCH:-$(uname -m)}"
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"  # linux, darwin, etc
 
-PHP_BIN="./php"         # Generic fallback
-[ -x "$PHP_BIN" ] || PHP_BIN="./php-$ARCH"   # Fallback without OS tag
-[ -x "$PHP_BIN" ] || PHP_BIN="./php-$ARCH-$OS"
+PHP_BIN="bin/php"         # Generic fallback
+[ -x "$PHP_BIN" ] || PHP_BIN="bin/php-$ARCH"   # Fallback without OS tag
+[ -x "$PHP_BIN" ] || PHP_BIN="bin/php-$ARCH-$OS"
 [ -x "$PHP_BIN" ] || { echo "No valid PHP binary found."; exit 1; }
 
 ADDRESS="${ADDRESS:-localhost:9000}"

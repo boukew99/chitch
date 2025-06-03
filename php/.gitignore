@@ -1,5 +1,3 @@
-*
-!.gitignore
-!server.bat
-!server.sh
-!php.ini
+bin/
+server.log
+license.txt
