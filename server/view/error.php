@@ -1,14 +1,13 @@
   <?php
   # © 2025 Chitch-Maintainers, Licensed under the EUPL
 
-  /**
-   * Error code page feedback page
-   * @see https://www.php.net/manual/en/function.http-response-code.php
-   */
-
+  require('../chitch.php');
   $error = http_response_code() ?? 505;
 
-  require('../chitch.php');
+    /**
+     * Error code page feedback page
+     * @see https://www.php.net/manual/en/function.http-response-code.php
+     */
 
 
   $reports = match ($error) {
@@ -22,19 +21,7 @@
 
   ?>
   <?= Chitch\head(); ?>
-  <title><?= $title ?></title>
-  <script defer src="/visit.js"></script>
-  <meta name="description" content="<?= $description ?>">
-  <main>
-    <header>
-      <h1><?= $title ?></h1>
-      <p><?= $description ?>
-      <p>Fix: <?= $fix ?>
-      <blockquote><?= $quote ?></blockquote>
-      <p>Error code <code><?= $error ?></code>.
-    </header>
-  </main>
-
+  <?= include('../template/error.php'); ?>
   <footer>
     <?= Chitch\foot() ?>
   </footer>

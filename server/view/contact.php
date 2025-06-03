@@ -95,19 +95,9 @@ session_start();
         <?php // Handle POST requests for submitting messages
 
         if ($_SERVER["REQUEST_METHOD"] === "POST" && $subject && $message && $email && $name && $urgency) {
-            ob_start(); ?>
-            <details id=<?= uniqid() ?> class=<?= empty($nickname) ? "human" : "bot" ?> >
-                <summary class="<?= $urgency ?>"><?= $subject ?></summary>
-                <article>
-                    <h3><?= $subject ?></h3>
-                    <time>post-time: <?= time() ?></time>
-                    <pre><?= $message ?></pre>
-                    <address>
-                        <a href='mailto:<?= $email ?>'><?= $name ?></a>
-                    </address>
-                </article>
-            </details>
-        <?php
+            ob_start();
+
+            include "../template/mail.php";
             $article = ob_get_clean();
 
             write("messages", $article);

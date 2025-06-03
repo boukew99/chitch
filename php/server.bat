@@ -11,7 +11,7 @@ echo.
 
 start "" "http://localhost:9000"
 
-bin\php.exe -S localhost:9000 --php-ini .\php.ini --docroot ..\include\view 2> server.log
+bin\php.exe -S localhost:9000 --php-ini .\php.ini --docroot ..\server\view 2> server.log
 
 pause
 REM Do not auto-close window

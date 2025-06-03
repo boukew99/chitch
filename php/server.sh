@@ -23,7 +23,7 @@ export PHP_CLI_SERVER_WORKERS=4
 "$PHP_BIN" \
   --php-ini "$PHP_CONFIG" \
   --server "$ADDRESS" \
-  --docroot ../include/view 2> server.log
+  --docroot ../server/view 2> server.log
 
 
 # sudo ADDRESS=0.0.0.0:80 ./server.sh

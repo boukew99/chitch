@@ -22,8 +22,6 @@
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.cursorBlinking": true,
 
-    "search.followSymlinks": false,
-
     "workbench.iconTheme": "vscode-icons",
 
     "editor.renderLineHighlight": "gutter",

@@ -11,7 +11,7 @@ const OWNER = "chitch.org"; // Ideally change per site
 
 // Dev Mode
 php_sapi_name() === "cli-server" &&
-    (require_once __DIR__ . "/test.php");
+    (require_once __DIR__ . "/debug.php");
 
 function log_path(string $file = ""): string
 {

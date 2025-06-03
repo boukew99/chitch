@@ -67,7 +67,7 @@ for full compatibility, use the [officially supported Windows Subsystem for Linu
 If not using VSCode, then you can also run `server.sh` or `server.bat` from the file browser or command line.
 
 ## Customize
-You can **edit any file** in Chitch and make it your own. Chitch is an applied project, so you have to **replace some content** before publishing. The default location to start creating your application is in the `include/view/` directory. These hold the web pages which are visualized by the browser. You can try editing `chitch.css` for a new style or add a new `.php` page for new functionality. With the server running you can view the changes you make by refreshing the page in the web browser. _By default (in this projects) VSCode will save the changes once you switch to the web browser, so you don't have to save manually._
+You can **edit any file** in Chitch and make it your own. Chitch is an applied project, so you have to **replace some content** before publishing. The default location to start creating your application is in the `server/view/` directory. These hold the web pages which are visualized by the browser. You can try editing `chitch.css` for a new style or add a new `.php` page for new functionality. With the server running you can view the changes you make by refreshing the page in the web browser. _By default (in this projects) VSCode will save the changes once you switch to the web browser, so you don't have to save manually._
 
 By editing Chitch you will have essentially **forked** your own version of Chitch. You can make it compatible to your own requirements. Optionally you can upstream the updates from the stem (Chitch-main) later.
 
@@ -85,7 +85,7 @@ Chitch targets the Linux(Unix-like) system, which is the [dominant system on web
 ### Packaging
 In order to publish Chitch you first need to package the website for exportation. We can use a **file browser** for that.
 
-1. Copy the `include/` directory and post-fix the new directory name with the version number. For example `chitch-3-7`.
+1. Copy the `server/` directory and post-fix the new directory name with the version number. For example `chitch-3-7`.
 2. Delete the files in `chitch-3-7` which you don't want to publish.
 3. Open the Context Menu (Right-click) on `chitch-3-7` and Select the option to make it into a ZIP archive.
     - Windows: `Send To > Compressed (zipped) folder`
@@ -145,18 +145,9 @@ Since Chitch is an **open & distributed project**, it is probably worth it to [o
 ```
 
 ### Project Aim
-This project is foremost an working site. The aim is that it packs the most functionality in a sustainable manner. Then Chitch can be the **superset** from which anyone can take a **subset** and customize that for their own specialized application.
-Thus, this project is a living template for sustainable web software. It’s not a framework you build on top of — it’s a readable, modifiable codebase meant to be forked, studied, and evolved for your own use. Think of it as a practical demonstration of principles. It is a system with rules, but since there is no abstract translation layers, just direct straightforward code. That is the most efficient approach.
+This project is foremost an working site. Thus it is just 1 specific tree of Chitch. Anyone can fork it and make there own tree. However,  the aim is that this tree packs the most functionality, in a sustainable manner. Then this tree can be the **superset** from which anyone can take a **subset** and customize that for their own specialized application.
+Thus, this project is a living template for sustainable web app software. It’s not a framework you build on top of. You build within it. It’s a readable, modifiable codebase meant to be forked, studied, and evolved for your own use. It is a system with rules, no abstract translation layers, just direct straightforward code. That is the most efficient approach.
 Eventually most user specific data is meant to be stored in `database/`, independent of the version controlled source code. However some *functionality* can also be user specific, so this separation is blurry.
-
-### Technical Constraints
-In order reach the target of being sustainable, there are three constraints:
-
-1. Chitch needs to completely boot-able from Disk. Meaning all of Chitch state should be able to be stored in Disk. This ensures Chitch can hibernate to disk, meaning it won't use any resources (RAM or CPU) if it is not active.
-2. In order to take advantage of hibernation, the host needs to be able to share computing resources.
-3. Chitch needs to be accessible.
-
-Shared hosting satisfies this constraints. However, shared hosting has limitations, which means Chitch also needs to work with the **FTP protocol** to allow the user to upload the website.
 
 ## License
 The code is made available with the EUPL, which is a weak copyleft license. By making this green software freely available, people can use it and minimize the climate footprint of the web. The [EUPL is included in text form](license.txt) for reference, but [the EUPL can be read as a web page](https://eupl.eu/1.2/en/) as well. The license was chosen to promote collaboration by allowing the contributions to remain open.

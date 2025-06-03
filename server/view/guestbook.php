@@ -88,12 +88,9 @@ session_start();
             }
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($error)) {
                 if ($ishuman && $quote && $alias) {
-                    $content = <<<HTML
-                    <blockquote>
-                        <p>{$quote}</p>
-                        <cite>- {$alias}</cite>
-                    </blockquote>
-                    HTML;
+                    ob_start();
+                    include('../template/guestnote.php');
+                    $content = ob_get_clean();
                     write('guestbook', $content);
                     $_SESSION['guestbook_posted'] = true;
                     echo '<p id="feedback">Thank you for your contribution! Your quote has been added.</p>';

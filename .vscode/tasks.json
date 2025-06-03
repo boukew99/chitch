@@ -4,7 +4,7 @@
     {
       "label": "Test Server MacOS/Linux",
       "type": "shell",
-      "command": "bin/server.sh",
+      "command": "php/server.sh",
       "group": {
         "kind": "build"
       },
@@ -14,7 +14,7 @@
     {
       "label": "Test Server Windows",
       "type": "shell",
-      "command": "bin\\server.bat",
+      "command": "php\\server.bat",
       "group": {
         "kind": "build"
       },
