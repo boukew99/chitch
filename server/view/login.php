@@ -3,7 +3,7 @@
 
 require("../chitch.php");
 
-use function Chitch\{read, validate_string};
+use function Chitch\{chitchmail, read, validate_string};
 
 session_start();
 
@@ -78,12 +78,10 @@ session_start();
                         $_SESSION["groups"] = $user["groups"];
                         $_SESSION["authenticated"] = $onetimekey = $generateToken();
                         # https://docs.hetzner.com/konsoleh/account-management/email/setting-up-an-email-account/
-                        mail(
+                        chitchmail(
                             $email,
                             "Membership Login Confirmation",
-                            "Follow this link to confirm your login: https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?key=$onetimekey",
-                            "From: login@chitch.org",
-                            "-f login@chitch.org"
+                            "Follow this link to confirm your login: https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?key=$onetimekey"
                         );
                     }
 

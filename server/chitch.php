@@ -13,6 +13,27 @@ const OWNER = "chitch.org"; // Ideally change per site
 php_sapi_name() === "cli-server" &&
     (require_once __DIR__ . "/debug.php");
 
+function chitchmail(string $email, string $subject, string $message) {
+    if (php_sapi_name() === "cli-server") {
+        // In dev mode, use a debug function to log emails
+        $nickname = "";
+        $urgency = "normal";
+        $name = "Chitch Mailer";
+        // vars used in template/mail.php
+
+        write("messages", include __DIR__ . "/template/mail.php");
+    }
+    else {
+        mail(
+                $email,
+                $subject,
+                $message,
+                "From: auto@" . OWNER,
+                "-f auto@" . OWNER
+            );
+    }
+}
+
 function log_path(string $file = ""): string
 {
     $base = dirname(__DIR__, 1) . "/database/";
