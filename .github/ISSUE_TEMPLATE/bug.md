@@ -15,13 +15,19 @@ _Describe or provide an error message or screenshot of the bug_
 
 _Explain what this bug is inhibiting you from doing_
 
-## Area of the Bug
-
-- [ ] Building
-- [ ] Function
-- [ ] Template
-- [ ] Other: __________
 
 ## 🔗 Related Issues or Context
 
 _Link to any existing issues, discussions, or relevant resources._
+
+Browser:
+- [ ] Chrome-like
+- [ ] Firefox
+- [ ] Safari-like
+- [ ] Other: __________
+
+Operating System:
+- [ ] Windows
+- [ ] MacOS
+- [ ] Linux
+- [ ] Other: __________

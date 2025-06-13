@@ -1,2 +1,4 @@
-# .gitattributes
-* text=auto
+# Normalize EOL for all files that Git considers text files
+* text=auto eol=lf
+# Except for Windows-only
+*.bat eol=crlf

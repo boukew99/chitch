@@ -13,7 +13,7 @@ _A short description of the idea, task, or initiative you want to explore._
 
 ## 🔍 Why It Matters
 
-_Explain why this is valuable or needed — could be solving a pain point, enhancing UX, docs, community, etc._
+_Explain why this is valuable or needed, could be solving a pain point, enhancing UX, docs, community, etc._
 
 ## 🤝 Type of Contribution
 
