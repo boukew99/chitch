@@ -1,0 +1,144 @@
+<!doctype html>
+<meta charset="UTF-8">
+
+<html lang="en">
+<meta charset="UTF-8">
+<title>Chitch Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="application/view//icon.svg?1" />
+<link rel="stylesheet" href="application/view/chitch.css">
+<script defer src="application/view/ensue.js"></script>
+<header>
+    <h1 id="chitch">Chitch</h1>
+    <p>Chitch is a live template and is build as a new sustainable web application. It integrates with the filesystem to
+        achieve transparent data flows and low resource usage. It can be forked and edited for your own blog or
+        application,
+        running locally, on your network or on the world wide web.</p>
+    <blockquote>
+            This project is in an <strong>experimental phase</strong> and is not yet consistent!
+    </blockquote>
+</header>
+<main>
+    <h2 id="setup">Setup</h2>
+    <p>Chitch is fully <strong>self-contained</strong> and <strong>cross-platform</strong>, and thus you only need to
+        extract it to run it. You can get a Chitch build specifically for your operating system from the <a
+            href="https://github.com/boukew99/chitch/releases">Github Releases Page</a>.</p>
+    <p>These bundles have a stable version of Chitch. To get the latest changes use <code>git pull</code>.</p>
+    <h3 id="run">Run</h3>
+    <p>In your file browser run <code>server/start.sh</code> on MacOS/Linux or <code>server/start.bat</code> on Windows.
+        Open <a href="http://localhost:9000">http://localhost:9000</a> in your browser.</p>
+    <p><em>MacOS</em>:
+        You may need to <a
+            href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac">allow
+            the
+            binary to run</a>.</p>
+    <p><em>Windows</em>:
+        for full compatibility, use the <a href="https://learn.microsoft.com/en-us/windows/wsl/about">officially
+            supported
+            Windows Subsystem for Linux</a> or use <a
+            href="https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository">Github
+            Codespaces</a>.</p>
+    <h2 id="deployment">Deployment</h2>
+    <p>Deploy to the world wide web! Chitch requires the following features from a hosting setup:</p>
+    <ul>
+        <li>SSL (Secure Sockets Layer) for usage of HTTPS (Hypertext Transfer Protocol Secure)</li>
+        <li>Mail server, for mail() usage, used in login.</li>
+        <li>Configurable Webroot/Document-root</li>
+        <li>Green energy (Otherwise it won&#39;t run)</li>
+        <li>Linux Operating System (the <a href="https://w3techs.com/technologies/overview/operating_system">most used
+                system on web servers</a>)</li>
+    </ul>
+    <h3 id="packaging">Packaging</h3>
+    <p>In order to publish Chitch you first need to package the website for exportation. We can use a <strong>file
+            browser</strong> for that.</p>
+    <ol>
+        <li>Copy the <code>application/</code> directory and post-fix the new directory name with the version number.
+            For
+            example <code>chitch-3-7</code>.</li>
+        <li>Delete pages from <code>chitch-3-7/view/</code> which you don&#39;t require (superset).</li>
+        <li>Open the Context Menu (Right-click) on <code>chitch-3-7</code> and Select the option to make it into a ZIP
+            archive.<ul>
+                <li>Windows: <code>Send To &gt; Compressed (zipped) folder</code></li>
+                <li>Linux/MacOS: <code>Compress</code> as ZIP</li>
+            </ul>
+        </li>
+    </ol>
+    <h3 id="shared-hosting">Shared hosting</h3>
+    <p>Shared hosting is an efficient, cheap and accessible way to host a website. However, they are relatively
+        restricted
+        setups, so in order to make the setup universal, we need to deploy into <code>public_html</code> directly. The
+        steps
+        to install Chitch:</p>
+    <ol>
+        <li>Upload and extract <code>chitch-3-7.zip</code> in <code>public_html/</code>.</li>
+        <li>Set the Webroot with your <strong>hosts tools</strong> to <code>public_html/chitch-3-7/view/</code>.</li>
+        <li>Go to the page <code>/install.php</code> on your domain and follow the instructions there.</li>
+    </ol>
+    <p>User specific data is meant to be stored in <code>database/</code>. On the shared hosting a <code>database</code>
+        folder will be automatically created with the <code>install.php</code> process.</p>
+    <h4 id="updating">Updating</h4>
+    <p>We can do an <strong>atomic</strong> update to the host with the same process. The only thing to keep in mind is
+        that
+        the new ZIP will need a new version number, as not to overlap the current code during extraction. If you keep
+        the
+        old code around you can also switch back to the previous version of the site if something goes wrong. The
+        database
+        information should remain, so <code>/install.php</code> is not necessary and should remain forbidden to access.
+    </p>
+    <h4 id="assets-cdn-">Assets (CDN)</h4>
+    <p>Assets such as images, audio and video are not included in the code, since these remain static and do not need
+        frequent updates. Therefore, these assets are hosted on a subdomain. In this case <code>cdn.chitch.org</code>.
+        These
+        can be managed easily with FTP.</p>
+    <p>For local development they can also be used, since the browser makes a cache of the assets, which will work
+        offline
+        as well.</p>
+    <h2 id="issue-reporting">Issue reporting</h2>
+    <p>Issues with the software can be reported at <a
+            href="https://github.com/boukew99/chitch/issues">https://github.com/boukew99/chitch/issues</a>. Please use
+        inclusive language. Note that Chitch accepts also <a
+            href="https://github.com/readme/featured/open-source-non-code-contributions">non-code contributions</a>.</p>
+    <pre style="font-family: monospace;"><code>
+  ____________________________________________
+ /                                            \
+|  Legend has it, a capybara will visit if you |
+|             contribute to Chitch!            |
+ \______________________________\    /________/
+                                 \  /
+                                  \/
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣶⣶⣾⣿⠛⢿⣧⣤⣤⣤⣤⣤⣤⣤⣦⣤⣄⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠃⠀⠀⠈⠻⠿⠿⠛⠋⠉⠉⠉⠉⠉⠉⢉⣽⣿⠿⣷⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⢁⣤⣬⣿⣧⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⡿⠀⠀⠀⠀⠀⣠⣴⣶⠀⠀⠀⠀⢼⣿⠀⠈⠉⣿⡏⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠁⠀⠀⠀⠀⠘⠟⠉⠀⠀⠀⠀⠀⣾⣿⠀⠀⠀⣿⡇⣿⣇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡄⠀⠀⠈⠀⣿⡏
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣦⣀⡀⣰⣿⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣻⣿⡿⠃⠀
+⠀⠀⠀⠀⢀⣤⣶⡿⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠟⠋⠀⠀⠀
+⠀⠀⠀⣰⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⠀⠀⠀⠀⠀
+⠀⠀⣼⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⣼⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀
+⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀
+⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠀⠀⠀⠀⠀⠀
+⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⠀⠀⠀⠀
+⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄⠀⢸⣿⡅⠀⠀⠀⠀⠀
+⣰⣾⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠀⢸⣿⠆⠀⠀⠀⠀⠀
+⣿⣧⣽⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⠃⠀⠀⢸⣿⠇⠀⠀⠀⠀⠀
+⠈⠉⠋⠉⠙⠿⢿⣶⣤⣀⣀⡀⠀⠀⠀⠀⠀⣀⣠⣦⡀⠀⠀⠀⢰⣿⡟⠙⢿⣦⣄⣀⣸⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠻⢿⣦⣤⣤⣾⠟⠀⠀⠀⠉⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</code></pre>
+    <h3 id="license">License</h3>
+    <p>The code is made available with the EUPL, which is a reciprocal (or copyleft) license. The <a
+            href="license.txt">EUPL
+            is included in text form</a> for reference, but <a href="https://eupl.eu/1.2/en/">the EUPL can be read as a
+            web
+            page in different languages</a> as well. The license was chosen to promote collaboration and allow
+        contributions
+        to remain open.</p>
+    <p> &quot;This product includes PHP software, freely available from
+        <a href="http://www.php.net/software/">http://www.php.net/software/</a>&quot;.
+    </p>
+
+</main>
