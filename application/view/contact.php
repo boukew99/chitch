@@ -116,7 +116,7 @@ session_start();
             }
         </style>
         <section id="messages">
-            <?= read("messages") ?>
+            <?= implode('', read("messages")) ?>
         </section>
     <?php endif; ?>
 

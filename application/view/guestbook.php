@@ -107,7 +107,7 @@ session_start();
 
     <section id="guestbook-quotes">
         <h2>Quotes</h2>
-        <?= read('guestbook') ?>
+        <?= implode('', read('guestbook')) ?>
     </section>
 </main>
 

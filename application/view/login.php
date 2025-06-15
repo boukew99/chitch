@@ -64,7 +64,7 @@ session_start();
                         return bin2hex(random_bytes($length / 2)); // secure random token
                     };
 
-                    $hashedmails = unserialize(read("members"));
+                    $hashedmails = unserialize(read("members")[0]);
 
                     if (!isset($hashedmails[$username])) {
                         return false;

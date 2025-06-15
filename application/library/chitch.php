@@ -44,12 +44,12 @@ function log_path(string $file = ""): string
 /**
  * Concurrent stream file read
  */
-function read(string $file, int $cutoff = 0): string
+function read(string $file): array
 {
     $file = log_path($file);
 
     if (!file_exists($file)) {
-        return "";
+        return [];
     }
 
     $content = file_get_contents($file);
@@ -57,7 +57,7 @@ function read(string $file, int $cutoff = 0): string
     // Find last commit marker
     $pos = strrpos($content, "<!-- COMMIT -->");
     if ($pos === false) {
-        return "";
+        return [];
     }
 
     // Get content up to last commit
@@ -69,12 +69,7 @@ function read(string $file, int $cutoff = 0): string
     // Remove empty entries and trim
     $entries = array_filter(array_map("trim", $entries));
 
-    // Get last $cutoff entries or all if $cutoff is 0
-    if ($cutoff > 0) {
-        $entries = array_slice($entries, -$cutoff);
-    }
-
-    return implode("\n", $entries);
+    return $entries;
 }
 
 function write(string $file, string $data): bool

@@ -5,20 +5,20 @@ require('../library/chitch.php');
 
 use function Chitch\{batch, read, write};
 
-if (read('members') !== '') {
+if (read('members') !== []) {
     header('HTTP/1.1 403 Forbidden');
     exit;
 } elseif (!is_dir(Chitch\log_path())) {
     mkdir(Chitch\log_path());
 }
 
-if (read('install') === '') {
+if (read('install') === []) {
     $unique = bin2hex(random_bytes(32));
     write('install', $unique);
 
 }
 
-$installkey = read('install');
+$installkey = read('install')[0];
 
 ?>
 <?= Chitch\head() ?>

@@ -31,7 +31,7 @@ use function Chitch\{read};
             </tr>
         </thead>
         <tbody class="chart">
-            <?= read('traffic') ?>
+            <?= implode('', read('traffic')) ?>
         </tbody>
     </table>
 

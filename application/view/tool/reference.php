@@ -77,7 +77,7 @@ $library = array_filter($library, fn($f) => str_starts_with($f, 'chitch\\'));
             <h2>read</h2>
             <p>Reads a file and returns its content. If the file does not exist, it returns an empty string. This functions can read concurrently, due to the use of markers in the file. So if another process would be writing to the same file, and it the file write is not complete. Then this function will read to the latest marker, which indicates the last stable point within the file.
         </header>
-        <pre><?= $test(read('test')) ?></pre>
+        <pre><?= $test(implode('', read('test'))) ?></pre>
     </section>
 
     <section id="tokenize">

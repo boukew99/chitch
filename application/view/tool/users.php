@@ -13,7 +13,7 @@ echo Chitch\head();
 <main>
     <?= wrap('ul',
             tree('li', fn($x) => htmlspecialchars($x),
-                array_keys(unserialize(read('members'))) )
+                array_keys(unserialize(read('members')[0])) )
         );?>
 
 </main>
