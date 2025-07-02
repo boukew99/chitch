@@ -1,0 +1,13 @@
+# run with `sudo frankenphp run` or `sudo frankenphp start` in this directory
+{
+	frankenphp
+}
+
+:80 {
+	root * ../pages
+	encode br zstd gzip
+
+	php_server
+}
+
+# finds Caddyfile and php.ini in the current directory
