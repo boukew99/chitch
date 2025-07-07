@@ -1,0 +1,16 @@
+{
+  "name": "Chitch the Green Website",
+  "short_name": "Chitch",
+  "description": "Offline functionality for this website.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffa800",
+  "theme_color": "orange",
+  "icons": [
+    {
+      "src": "/styles/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

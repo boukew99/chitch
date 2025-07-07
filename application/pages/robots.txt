@@ -1,0 +1,11 @@
+# Reference: https://www.robotstxt.org/robotstxt.html
+# Only allow search engines and social media to index the site
+
+# Disallow All:
+
+User-agent: *
+Disallow: tool/
+Disallow: admin/
+Disallow: api/
+Disallow: app/contact.php
+Disallow: error.php

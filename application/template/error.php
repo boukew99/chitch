@@ -1,5 +1,4 @@
 <title><?= $title ?></title>
-<script defer src="/api/visit.js"></script>
 <meta name="description" content="<?= $description ?>">
 <main>
 <header>

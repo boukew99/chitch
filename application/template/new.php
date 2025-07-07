@@ -6,3 +6,5 @@
         <?=$content?>
     </div>
 </article>
+<?php
+/// compact('id', 'title', 'date', 'author', 'content')

@@ -7,6 +7,8 @@
 
 <link rel="stylesheet" href="/styles/chitch.css?v=1">
 <link rel="icon" href="/app/icon.svg?1">
+<?php //https://caniuse.com/?search=svg%20favicon ?>
+
 <script defer src="/script/ensue.js"></script>
 
 <meta name="generator" content="Chitch">
@@ -21,3 +23,6 @@
 </script>
 <?= $analytics ? '<script defer src="/script/visit.js"></script>' : '' ?>
 <?= $check ?>
+
+<?php
+// compact('analytics', 'check');

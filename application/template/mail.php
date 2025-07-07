@@ -1,4 +1,4 @@
-<details id=<?= uniqid() ?> class=<?= empty($nickname) ? "human" : "bot" ?> >
+<details id=<?= uniqid() ?> class=<?= empty($bot) ? "human" : "bot" ?> >
     <summary class="<?= $urgency ?>"><?= $subject ?></summary>
     <article>
         <h3><?= $subject ?></h3>
@@ -9,3 +9,5 @@
         </address>
     </article>
 </details>
+<?php
+/// compact('subject', 'message', 'email', 'name', 'urgency', 'bot')

@@ -8,10 +8,6 @@ const BLOCKSIZE = 4096;
 const OWNER = "chitch.org"; // Ideally change per site
 # Blocks Shared Session: https://stackoverflow.com/questions/1545357/how-can-i-check-if-a-user-is-logged-in-in-php
 
-// Dev Mode
-php_sapi_name() === "cli-server" &&
-    (require_once __DIR__ . "/debug.php");
-
 function chitchmail(string $email, string $subject, string $message) {
     if (php_sapi_name() === "cli-server") {
         // In dev mode, use a debug function to log emails
@@ -29,15 +25,15 @@ function chitchmail(string $email, string $subject, string $message) {
                 $email,
                 $subject,
                 $message,
-                "From: auto@" . OWNER,
-                "-f auto@" . OWNER
+                "From: no-reply@" . OWNER,
+                "-f no-reply@" . OWNER
             );
     }
 }
 
 function log_path(string $file = ""): string
 {
-    $base = dirname(__DIR__, 2) . "/database/content/";
+    $base = dirname(__DIR__, 2) . "/database/";
     return $file ? $base . $file . ".html" : $base;
 }
 
@@ -62,40 +58,98 @@ function read(string $file): array
 
     // Get content up to last commit
     $validContent = substr($content, 0, $pos + strlen("<!-- COMMIT -->"));
-
-    // Split content by commit markers
-    $entries = explode("<!-- COMMIT -->", $validContent);
-
+    $blocks = explode("<!-- COMMIT -->", $validContent);
     // Remove empty entries and trim
-    $entries = array_filter(array_map("trim", $entries));
+    $blocks = array_filter(array_map("trim", $blocks));
+
+    $entries = [];
+
+    foreach ($blocks as $block) {
+        if (preg_match('/<!-- HASH: ([a-f0-9]{6,64}) -->/', $block, $match)) {
+            $hash = $match[1];
+            $cleaned = preg_replace('/<!-- HASH: [a-f0-9]{6,64} -->\s*/', '', $block, 1);
+            $entries[$hash] = $cleaned;
+        } else {
+            $entries[] = $block;
+        }
+    }
 
     return $entries;
 }
 
-function write(string $file, string $data): bool
+
+function write(string $file, string $data, bool $withHash = true): bool
 {
     $file = log_path($file);
 
-    // Create file if it doesn't exist
     if (!file_exists($file)) {
         touch($file);
         chmod($file, 0644);
     }
 
-    $entry = $data . "\n<!-- COMMIT -->\n";
+    $entry = $withHash
+        ? "<!-- HASH: " . sha1($data) . " -->\n$data\n<!-- COMMIT -->\n"
+        : "$data\n<!-- COMMIT -->\n";
 
     // Check if content is small enough for an atomic write
     // No lock for fast atomic writes
     $flags = strlen($entry) < BLOCKSIZE ? FILE_APPEND : FILE_APPEND | LOCK_EX;
+
     $written = file_put_contents($file, $entry, $flags) ? true : false;
 
-    // false = number_written = 0
     if ($written === false) {
         throw new \RuntimeException("Failed to write to file: $file");
-        #error_log('Failed to write to ' . $file);
     }
+
     return $written;
 }
+
+
+function overwrite(string $file, string $targetHash, string $newData): bool
+{
+    $file = log_path($file);
+
+    if (!file_exists($file)) {
+        throw new \RuntimeException("File not found: $file");
+    }
+
+    $content = file_get_contents($file);
+
+    // Find all commit blocks with hash
+    preg_match_all('/<!-- HASH: ([a-f0-9]{40,64}) -->\s*(.*?)\s*<!-- COMMIT -->/s', $content, $matches, PREG_SET_ORDER);
+
+    $newEntries = [];
+    $found = false;
+
+    foreach ($matches as $match) {
+        $hash = $match[1];
+        $block = $match[2];
+
+        if ($hash === $targetHash) {
+            // Replace this block
+            $newHash = sha1($newData);
+            $entry = "<!-- HASH: $newHash -->\n$newData\n<!-- COMMIT -->";
+            $newEntries[] = $entry;
+            $found = true;
+        } else {
+            // Keep original
+            $newEntries[] = $match[0]; // full match, unmodified
+        }
+    }
+
+    if (!$found) {
+        throw new \RuntimeException("Commit with hash $targetHash not found.");
+    }
+
+    // Join all entries
+    $newContent = implode("\n\n", $newEntries) . "\n";
+
+    // Write full file (lock for safety)
+    $written = file_put_contents($file, $newContent, LOCK_EX);
+
+    return $written !== false;
+}
+
 
 function batch(array $array, callable $constructor, string $marker = ''): string
 {
@@ -263,10 +317,9 @@ function tree(string $seperator, callable $fn, ...$data): string
     );
 }
 
-function head(): string
+function head(bool $analytics = false): string
 {
     $check = php_sapi_name() === "cli-server" ? "<script defer src='/tool/check.js'></script>" : '';
-
     ob_start();
 
     include(__DIR__ . '/../template/head.php');
@@ -280,7 +333,19 @@ function foot(): string
 
     include(__DIR__ . '/../template/footer.php');
 
-    return ob_get_clean(); // 🎁 give back da string
+    return ob_get_clean();
+}
+
+function templatepass(string $template, array $variables = []): string
+{
+    // Extract variables to local scope
+    extract($variables, EXTR_SKIP);
+
+    ob_start(); // 📦 grab all da echo'd stuff
+
+    include(__DIR__ . "/../template/$template.php");
+
+    return ob_get_clean();
 }
 
 const cdn_address = "https://cdn.chitch.org/";
@@ -301,5 +366,6 @@ function authstate() {
 }
 
 # Spread Operator: https://stackoverflow.com/questions/41124015/what-is-the-meaning-of-three-dots-in-php
+# Handling User input https://stackoverflow.com/questions/129677/how-can-i-sanitize-user-input-with-php/130323#130323
 
 # © Chitch-Maintainers 2025, Licensed under the EUPL.
