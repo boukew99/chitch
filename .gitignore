@@ -1,3 +1,9 @@
 .vscode/
 .env
 empty/
+php
+php.exe
+.well-known
+assets
+database
+temp
