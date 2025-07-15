@@ -1,49 +1,39 @@
 <?php
 
-# ini_set('open_basedir', dirname(__DIR__,2) ); // Restrict access to test for total containment🔒
-ini_set("sys_temp_dir", dirname(__DIR__, 2) . "/temp/");
+#ini_set('open_basedir', dirname(__DIR__,2) ); // Restrict access to test for total containment🔒, breaks with /tmp usage
 ini_set("session.save_path", dirname(__DIR__, 2) . "/temp/");
 
+# Check where setting is changeable: https://www.php.net/manual/en/ini.list.php (INI_USER)
 #error_reporting(E_ALL);
 
-//https://www.php.net/manual/en/errorfunc.constants.php#123901
+// Error codes meaning: https://www.php.net/manual/en/errorfunc.constants.php
 // Map error levels to their string representations
 function error_type_string(int $errno): string {
     $map = [
-        E_ERROR             => 'FatalError',
+        E_ERROR             => 'Fatal Error',
         E_WARNING           => 'Warning',
-        E_PARSE             => 'ParseError',
+        E_PARSE             => 'Parse Error',
         E_NOTICE            => 'Notice',
-        E_CORE_ERROR        => 'CoreError',
-        E_CORE_WARNING      => 'CoreWarning',
-        E_COMPILE_ERROR     => 'CompileError',
-        E_COMPILE_WARNING   => 'CompileWarning',
-        E_USER_ERROR        => 'UserError',
-        E_USER_WARNING      => 'UserWarning',
-        E_USER_NOTICE       => 'UserNotice',
-        E_RECOVERABLE_ERROR => 'RecoverableError',
+        E_CORE_ERROR        => 'Core Error',
+        E_CORE_WARNING      => 'Core Warning',
+        E_COMPILE_ERROR     => 'Compile Error',
+        E_COMPILE_WARNING   => 'Compile Warning',
         E_DEPRECATED        => 'Deprecated',
-        E_USER_DEPRECATED   => 'UserDeprecated',
     ];
     return $map[$errno] ?? 'UnknownError';
 }
 
 function meme_for_error(int $errno, string $errorMessage = ''): string {
     $memes = [
-        E_ERROR             => 'https://i.imgflip.com/1ur9b0.jpg', // "This is fine"
-        E_WARNING           => 'https://i.imgflip.com/2kbn1e.jpg', // Surprised Pikachu
-        E_PARSE             => 'https://imgflip.com/i/9xr5xp', // Math Lady
-        E_NOTICE            => 'https://i.imgflip.com/26br.jpg',   // John Travolta confused
-        E_CORE_ERROR        => 'https://imgflip.com/i/9xr61s', // You Shall Not Pass
-        E_CORE_WARNING      => 'https://i.imgflip.com/26am.jpg',   // Facepalm
-        E_COMPILE_ERROR     => 'https://i.imgflip.com/1g8my4.jpg', // Spider-Man pointing
-        E_COMPILE_WARNING   => 'https://i.imgflip.com/3lmzyx.jpg', // Big brain
-        E_USER_ERROR        => 'https://i.imgflip.com/1bim.jpg',   // Dramatic chipmunk
-        E_USER_WARNING      => 'https://i.imgflip.com/1ur9b0.jpg', // This is fine
-        E_USER_NOTICE       => 'https://i.imgflip.com/2kbn1e.jpg', // Surprised Pikachu
-        E_RECOVERABLE_ERROR => 'https://i.imgflip.com/26am.jpg',   // Facepalm
-        E_DEPRECATED        => 'https://imgflip.com/i/9xr5u4', // Spider-Man pointing
-        E_USER_DEPRECATED   => 'https://imgflip.com/i/9xr5u4',   // Dramatic chipmunk
+        E_ERROR             => 'https://imgflip.com/i/a09jko', // Cool guys don't look at explosions
+        E_WARNING           => 'https://imgflip.com/i/a09jrl', // This is fine
+        E_PARSE             => 'https://imgflip.com/i/a09k3l', // Wat
+        E_NOTICE            => 'https://imgflip.com/i/a09jb9', // Gru's Plan  // John Travolta confused
+        E_CORE_ERROR        => 'https://imgflip.com/i/a09kv0', // elmo fire
+        E_CORE_WARNING      => 'https://imgflip.com/i/a09kv0',
+        E_COMPILE_ERROR     => 'https://imgflip.com/i/a09kv0',
+        E_COMPILE_WARNING   => 'https://imgflip.com/i/a09kv0',
+        E_DEPRECATED        => 'https://imgflip.com/i/a09lh5', // Mr. Incredible uncanny
     ];
     // Extra specificity by message
     if (stripos($errorMessage, 'token') !== false) {
