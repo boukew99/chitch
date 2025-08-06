@@ -1,0 +1,15 @@
+{
+	frankenphp
+}
+
+:80 {
+	root * documents
+	encode br zstd gzip
+
+	php_server
+}
+
+# run with `sudo frankenphp run` or `sudo frankenphp start` in this directory
+# finds Caddyfile and php.ini in the current directory
+
+# makes the server available on the local network, can be accessed on this devices ip hostname -I or a $hostname.local dns with dnsmasq

@@ -1,9 +1,8 @@
 .vscode/
 .env
-empty/
-php
-php.exe
-.well-known
-assets
-database
-temp
+.github/copilot-instructions.md
+documents/.well-known/appspecific/com.chrome.devtools.json
+documents/video
+documents/images
+documents/audio
+# symlink these to user equivalents directories

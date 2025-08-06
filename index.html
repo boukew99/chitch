@@ -5,77 +5,179 @@
 <meta charset="UTF-8">
 <title>Chitch Help</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="application/pages/styles/icon.svg?1" >
-<link rel="stylesheet" href="application/pages/styles/chitch.css">
-<script defer src="application/pages/scripts/ensue.js"></script>
+<link rel="icon" href="documents/styles/icon.svg" >
+<link rel="stylesheet" href="documents/styles/chitch.css">
+<script defer src="documents/script/ensue.js"></script>
+
 <header>
   <h1>Chitch Software Development Kit</h1>
-  <p>This is the Chitch Software Development Kit (SDK), used to build the Chitch Website. It is build as a new sustainable Content Management System (CMS). It integrates with the filesystem to achieve transparent data flows and low resource usage. It can be forked and edited for your own blog or application, running locally, on your network or on the world wide web.</p>
-  <p>Version <em>0.3</em>.
+  <h2>Version <em>0.3</em></h2>
+  <p>This is the Chitch Software Development Kit (SDK), used to build the Chitch Website. It can run locally, on your network or on the world wide web. Visit <a href="https://chitch.org">chitch.org</a> for more information about Chitch.
 
+  <p>Descriptions of jargon in the context of web technology can be found at <a href="https://developer.mozilla.org/en-US/docs/Glossary">the MDN Glossary for web development</a>.
 
-  <p>Visit <a href="https://chitch.org">chitch.org</a> for more information about Chitch.</p>
-  <blockquote>
-  <p>This project is in an <strong>experimental phase</strong> and is not yet consistent!</p>
-  </blockquote>
 </header>
 
 <main>
-<h2>Setup</h2>
-<p>Get a stable build for Windows, MacOS or Linux from <a href="https://github.com/boukew99/chitch/releases">Github Releases Page</a>. It includes a PHP runtime.</p>
-<p>To get the latest changes use <code>git pull</code>.</p>
+
+<section>
+
+<h2>Setup the SDK</h2>
+<h3>Download PHP Language Binary</h3>
+<p>Chitch provides an optimized PHP runtime. The browser detects you need to:
+ <a id="download-link" href="#" download>Detecting your OS...</a>
+
+<details>
+  <summary>Manual download options ⬇️</summary>
+  <ul id="manual-links"></ul>
+</details>
+
+<script>
+const releases = [
+  { os: "windows", arch: "x86_64", file: "php-windows.zip" },
+  { os: "darwin",  arch: "x86_64", file: "php-darwin-x86_64.zip" },
+  { os: "darwin",  arch: "aarch64", file: "php-darwin-aarch64.zip" },
+  { os: "linux",   arch: "x86_64", file: "php-linux-x86_64.zip" },
+  { os: "linux",   arch: "aarch64", file: "php-linux-aarch64.zip" }
+];
+
+const baseURL = "https://github.com/boukew99/chitch/releases/download/supplementary/";
+
+const detectOS = () => {
+  const p = navigator.platform.toLowerCase();
+  if (p.includes("win")) return "windows";
+  if (p.includes("mac")) return "darwin";
+  if (p.includes("linux")) return "linux";
+  return "unknown";
+};
+
+const detectArch = () => {
+  const ua = navigator.userAgent;
+  if (/aarch64|arm64/.test(ua)) return "aarch64";
+  if (/x86_64|win64|amd64|x64/.test(ua)) return "x86_64";
+  if (/arm/.test(ua)) return "aarch64"; // fallback
+  return "unknown";
+};
+
+const buildURL = (file, os, arch) =>
+  `${baseURL}${file}?os=${encodeURIComponent(os)}&arch=${encodeURIComponent(arch)}&ua=${encodeURIComponent(navigator.userAgent)}`;
+
+const findMatch = (os, arch) =>
+  releases.find(r => r.os === os && r.arch === arch);
+
+const renderDownloadLink = () => {
+  const link = document.getElementById("download-link");
+  const os = detectOS();
+  const arch = detectArch();
+  const match = findMatch(os, arch);
+
+  if (match) {
+    const url = buildURL(match.file, os, arch);
+    link.href = url;
+    link.textContent = `Download for ${os} ${arch}`;
+  } else {
+    link.textContent = `Download not available for ${os} ${arch}`;
+    link.removeAttribute("download");
+  }
+};
+
+const renderManualLinks = () => {
+  const ul = document.getElementById("manual-links");
+  for (const {os, arch, file} of releases) {
+    const a = document.createElement("a");
+    a.href = buildURL(file, os, arch);
+    a.textContent = `${os} ${arch}`;
+    a.download = file;
+
+    const li = document.createElement("li");
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderDownloadLink();
+  renderManualLinks();
+});
+</script>
+
+<p>Extract the ZIP file and place the executable beside the project folder:
+<pre>
+  chitch/
+  php(.exe)
+
+  temp/
+  database/
+  assets/
+</pre>
+
+<p>Check if the folder <code>temp</code>, <code>database</code> and <code>assets</code> exists. If not create them above the project root.
+
+  <aside>You may also use your global PHP installation. Run <code>ln -s $(which php)</code> above the project root.</aside>
+</section>
+
+<section>
 
 <h3>Run</h3>
-<p>Each platform has a <a href="https://www.php.net/manual/en/features.commandline.options.php">custom PHP command</a> to run the server, taking the limitations in mind.</p>
-<p><strong>Windows x86_64:</strong></p>
-<pre><code>bin\windows\php.exe --server localhost:9000 --php-ini application\setting\php.ini --docroot application\pages &gt; temp\server.log 2&gt;&amp;1
-</code></pre><p><strong>MacOS x86_64:</strong></p>
-<pre><code>bin/darwin/php.x86_64 --server localhost:9000 --php-ini application/setting/php.ini --docroot application/pages &gt; temp/server.log 2&gt;&amp;1 &amp;
-</code></pre><p><strong>MacOS ARM64:</strong></p>
-<pre><code>bin/darwin/php.aarch64 --server localhost:9000 --php-ini application/setting/php.ini --docroot application/pages &gt; temp/server.log 2&gt;&amp;1 &amp;
-</code></pre><p><strong>Linux x86_64:</strong></p>
-<pre><code>bin/linux/php.x86_64 --server localhost:9000 --php-ini application/setting/php.ini --docroot application/pages &gt; temp/server.log 2&gt;&amp;1 &amp;
-</code></pre><p><strong>Linux ARM64:</strong></p>
-<pre><code>bin/linux/php.aarch64 --server localhost:9000 --php-ini application/setting/php.ini --docroot application/pages &gt; temp/server.log 2&gt;&amp;1 &amp;
-</code></pre><p>Once the server is running, open <a href="http://localhost:9000">http://localhost:9000</a> in your browser.</p>
-<p>On Linux and MacOS the server runs in the background, so you can close the terminal. They also output their logs to <code>temp/server.log</code>, which you can check for errors. On Windows the server runs in the foreground and you can stop it with <code>Ctrl+C</code>.</p>
-<p><em>MacOS</em>:
-You may need to <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac">allow the binary to run</a>.</p>
-<p>Note that the target System for deployment is Linux, so there might be minor inconsistencies on other systems.</p>
-<p><em>In VSCode you can use the shortcut <code>Ctrl+Shift+B</code> to build the project.</em></p>
+<p>The PHP executable contains <a href="https://www.php.net/manual/en/features.commandline.options.php">multiple commandline options</a>. We will use the executable as a server. The option <code>--server</code> starts the built-in web server, which makes it accessible to a web browser. The option <code>--docroot</code> specifies the document root directory, which is the folder that contains the public files of the application.
 
-<h2>Issue reporting</h2>
-<p>Issues with the software can be reported at <a href="https://github.com/boukew99/chitch/issues">https://github.com/boukew99/chitch/issues</a>. Please use inclusive language. Note that Chitch <a href="https://github.com/readme/featured/open-source-non-code-contributions">accepts also non-code contributions</a>.</p>
+<details>
+  <summary>Windows Platform</summary>
+  <p>On Windows, you can run the <code>server.bat</code> file from your file manager
+    <p>The server runs in the foreground and you can stop it with <code>Ctrl+C</code>.
+</details>
+<details>
+  <summary>MacOS & Linux Platform</summary>
+  <p>On MacOS and Linux, you can run the <code>server.sh</code> file from your terminal or file manager (Finder).
+  <p>On <strong>MacOS</strong> you  may need to <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac">allow the binary to run</a>.
+</details>
 
-<h3>License</h3>
-<p>The code is made available with the EUPL, which is a reciprocal (or copyleft) license. The <a href="license.txt">EUPL is included in text form</a> for reference, but <a href="https://eupl.eu/1.2/en/">the EUPL can be read as a web page in different languages</a> as well. The license was chosen to promote collaboration and allow equal contributions.</p>
-<p> &quot;This product includes PHP software, freely available from
-     <a href="http://www.php.net/software/">http://www.php.net/software/</a>&quot;.</p>
-<pre><code>⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣶⣶⣾⣿⠛⢿⣧⣤⣤⣤⣤⣤⣤⣤⣦⣤⣄⣀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠃⠀⠀⠈⠻⠿⠿⠛⠋⠉⠉⠉⠉⠉⠉⢉⣽⣿⠿⣷⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⢁⣤⣬⣿⣧⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⡿⠀⠀⠀⠀⠀⣠⣴⣶⠀⠀⠀⠀⢼⣿⠀⠈⠉⣿⡏⣿⡇
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠁⠀⠀⠀⠀⠘⠟⠉⠀⠀⠀⠀⠀⣾⣿⠀⠀⠀⣿⡇⣿⣇
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡄⠀⠀⠈⠀⣿⡏
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣦⣀⡀⣰⣿⠃
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣻⣿⡿⠃⠀
-⠀⠀⠀⠀⢀⣤⣶⡿⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠟⠋⠀⠀⠀
-⠀⠀⠀⣰⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⠀⠀⠀⠀⠀
-⠀⠀⣼⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀
-⠀⣼⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀
-⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀
-⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠀⠀⠀⠀⠀⠀
-⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⠀⠀⠀⠀
-⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄⠀⢸⣿⡅⠀⠀⠀⠀⠀
-⣰⣾⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠀⢸⣿⠆⠀⠀⠀⠀⠀
-⣿⣧⣽⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⠃⠀⠀⢸⣿⠇⠀⠀⠀⠀⠀
-⠈⠉⠋⠉⠙⠿⢿⣶⣤⣀⣀⡀⠀⠀⠀⠀⠀⣀⣠⣦⡀⠀⠀⠀⢰⣿⡟⠙⢿⣦⣄⣀⣸⣿⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠻⢿⣦⣤⣤⣾⠟⠀⠀⠀⠉⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</code></pre>
+<details>
+  <summary>VSCode Editor</summary>
+  <p><em>Use the shortcut <code>Ctrl+Shift+B</code> to build the project.</em>
+</details>
+
+<p>Once the server is running, open <a href="http://localhost:9000/tools/">http://localhost:9000</a> in your browser.</p>
+
+<p>If you <strong>experience issues with the server</strong>, you can check the <code>../server.log</code> file for error messages.
+
+<p>Note that the target System for deployment is Linux, so there might be minor inconsistencies on other systems.
+
+</section><section>
+
+<h2>Directory Structure</h2>
+<table>
+  <tr>
+    <td>../temp/
+    <td>Stores sessions data
+
+  <tr>
+    <td>../database/
+    <td>Stores submitted data
+
+  <tr>
+    <td>../assets/
+    <td>Stores submitted files
+
+  <tr>
+    <td>library/
+    <td>Contains namespaces with functions which can be imported
+
+  <tr>
+    <td>documents/
+    <td>Is the root of the public accessible files
+
+</table>
+
+</section>
+
+<section>
+  <h2>Deployment</h2>
+  <p>Chitch is designed to be run on a Linux server. It can be deployed on a web server or run as a standalone application. The recommended way to deploy Chitch is to use a Linux server with PHP installed. You can use a web server like Apache.
+  <p>FTP or preferably SFTP can be used to upload the files to the server. You can use you file manager to connect to the server via SFTP.
+</section>
 </main>
 <footer>
     <p>Copyright (c) 2025 Chitch Maintainers.
-    <p>Licensed under the European Union Public License.
+    <p>Licensed under the reciprocal <a href=license.txt>European Union Public License</a>. <a href="https://eupl.eu/1.2/en/">The EUPL can be read as a web page in different languages</a>
 </footer>
