@@ -3,7 +3,7 @@
 require_once(dirname($_SERVER['DOCUMENT_ROOT']) . '/library/bootstrap.php');
 use function Chitch\{a, cdn};
 ?>
-<?= Chitch\Template\head(analytics: true); ?>
+<?= Chitch\head(analytics: true); ?>
 <title>Chitch Green Website Builder</title>
 
 <meta
