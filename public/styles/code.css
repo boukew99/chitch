@@ -14,7 +14,7 @@
   --monospace-font-stack: 'Fira Code VF', "Courier New", "Courier" monospace;
 }
 
-code {
+code, textarea {
   font-feature-settings: "calt" 1;
   /* Enable ligatures for IE 10+, Edge */
   text-rendering: optimizeLegibility;
@@ -43,39 +43,44 @@ code {
 }
 
 /* //https://www.php.net/manual/en/tokens.php */
-
 .T_OPEN_TAG,
 .T_CLOSE_TAG {
-  color: light-dark(#0000ff, #5c7fff);
+  background-color: light-dark(#e3eaff, #1a237e);
+  color: light-dark(#1a237e, #e3eaff);
   font-weight: bold;
 }
 
 .T_STRING,
 .T_CONSTANT_ENCAPSED_STRING,
 .T_ENCAPSED_AND_WHITESPACE {
-  color: light-dark(#008000, #4dff4d);
+  background-color: light-dark(#eaffea, #006400);
+  color: light-dark(#006400, #eaffea);
 }
 
 .T_VARIABLE {
-  color: light-dark(#ff0000, #ff4d4d);
+  background-color: light-dark(#ffeaea, #b71c1c);
+  color: light-dark(#b71c1c, #ffeaea);
   font-weight: 500;
 }
 
 .T_LNUMBER,
 .T_DNUMBER,
 .T_NUM_STRING {
-  color: light-dark(#800080, #ff99ff);
+  background-color: light-dark(#f3eaff, #4a148c);
+  color: light-dark(#4a148c, #f3eaff);
 }
 
 .T_COMMENT,
 .T_DOC_COMMENT {
-  color: light-dark(#808080, #aaaaaa);
+  background-color: light-dark(#f5f5f5, #616161);
+  color: light-dark(#616161, #f5f5f5);
   font-style: italic;
 }
 
 .T_FUNCTION,
 .T_FN {
-  color: light-dark(#000080, #6699ff);
+  background-color: light-dark(#e3eaff, #0d47a1);
+  color: light-dark(#0d47a1, #e3eaff);
   font-weight: bold;
 }
 
@@ -83,7 +88,8 @@ code {
 .T_INTERFACE,
 .T_TRAIT,
 .T_ENUM {
-  color: light-dark(#006666, #66cccc);
+  background-color: light-dark(#e0f7fa, #004d40);
+  color: light-dark(#004d40, #e0f7fa);
   font-weight: bold;
 }
 
@@ -93,26 +99,40 @@ code {
 .T_SWITCH,
 .T_CASE,
 .T_DEFAULT {
-  color: light-dark(#660000, #ff6666);
+  background-color: light-dark(#ffebee, #b71c1c);
+  color: light-dark(#b71c1c, #ffebee);
   font-weight: bold;
 }
 
 .T_ECHO,
 .T_PRINT,
 .T_RETURN {
-  color: light-dark(#996600, #ffcc66);
+  background-color: light-dark(#fff8e1, #ff9800);
+  color: light-dark(#ff9800, #fff8e1);
+}
+
+.T_RETURN::before {
+  content: "⏎ ";
+}
+.T_ECHO::before {
+  content: "📢 ";
+}
+.T_PRINT::before {
+  content: "🖨️ ";
 }
 
 .T_NEW,
 .T_CLONE {
-  color: light-dark(#009999, #33ffff);
+  background-color: light-dark(#e0f7fa, #006064);
+  color: light-dark(#006064, #e0f7fa);
 }
 
 .T_USE,
 .T_NAMESPACE,
 .T_INCLUDE,
 .T_REQUIRE {
-  color: light-dark(#333399, #9999ff);
+  background-color: light-dark(#e3eaff, #283593);
+  color: light-dark(#283593, #e3eaff);
 }
 
 .T_BOOLEAN_AND,
@@ -120,7 +140,8 @@ code {
 .T_LOGICAL_AND,
 .T_LOGICAL_OR,
 .T_LOGICAL_XOR {
-  color: light-dark(#cc5500, #ffaa55);
+  background-color: light-dark(#fff3e0, #e65100);
+  color: light-dark(#e65100, #fff3e0);
 }
 
 .T_OPERATOR,
@@ -128,19 +149,23 @@ code {
 .T_IS_NOT_EQUAL,
 .T_IS_IDENTICAL,
 .T_IS_NOT_IDENTICAL {
-  color: light-dark(#222222, #dddddd);
+  background-color: light-dark(#eeeeee, #212121);
+  color: light-dark(#212121, #eeeeee);
 }
 
 .T_CONSTANT {
-  color: light-dark(#004400, #00cc66);
+  background-color: light-dark(#e8f5e9, #1b5e20);
+  color: light-dark(#1b5e20, #e8f5e9);
 }
 
 .T_token-char {
-  color: light-dark(#000000, #eeeeee);
+  background-color: light-dark(#f5f5f5, #212121);
+  color: light-dark(#212121, #f5f5f5);
 }
 
 .token-html {
-  background-color: lightblue;
+  background-color: #e3f2fd;
+  color: light-dark(#1565c0, #e3f2fd);
   font-style: italic;
 }
 

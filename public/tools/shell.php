@@ -1,11 +1,17 @@
 <?php
+// PHP Backend Logic
+// This part of the script only runs when a POST request is received.
 
-if (php_sapi_name() !== 'cli-server') {
-    exit(); // Ensure this script only runs in CLI server mode.
-}
-
+// IMPORTANT SECURITY WARNING:
+// This code uses passthru, which is a significant security risk.
+// It is designed ONLY for a local, trusted development environment (e.g., php -s).
+// DO NOT DEPLOY THIS TO A PUBLIC SERVER.
+//
+// Change the working directory to the parent of the document root.
+// This is a common practice to prevent accidental exposure of sensitive files.
 chdir(dirname($_SERVER['DOCUMENT_ROOT']));
 
+// ...existing code...
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['command'])) {
     while (ob_get_level() > 0) ob_end_flush();
 
@@ -53,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['command'])) {
     flush();
     exit;
 }
-
+// ...existing code...
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['command'])) {
         <h1>Local Streaming CLI Prototype</h1>
         <p>Enter commands below to execute them on the local server. The output will stream in real-time.</p>
 
+        <!-- Static Header Information -->
         <section>
             <h3 style="color: #48bb78;">Environment</h3>
             <p>
@@ -79,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['command'])) {
             </p>
         </section>
 
+        <!-- Command History Section -->
         <section>
             <h3>Command History</h3>
             <ul id="command-history" class="history-container">
@@ -101,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['command'])) {
             <input type="text" id="command-input" class="input-field" autofocus autocomplete="off">
         </form>
     </main>
-
     <script>
         const form = document.getElementById('command-form')
         const input = document.getElementById('command-input')

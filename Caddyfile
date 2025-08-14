@@ -3,8 +3,19 @@
 }
 
 :80 {
-	root * documents
+	root * public
 	encode br zstd gzip
+
+	#@blocked path /tools/*
+	#respond @blocked "403 no peeking 👁️❌" 403
+
+	handle_errors {
+		@any_error {
+			expression {http.error.status_code} >= 400
+		}
+		rewrite * /error.php?code={http.error.status_code}
+		php_server
+	}
 
 	php_server
 }

@@ -12,6 +12,7 @@
   --line-length: 37em;
   --leading: 1.4em;
   --stroke: 0.1em;
+  --rand1: 0.5;
 }
 
 @media print {
@@ -126,7 +127,15 @@ aside {
 details {
   padding-left: 2em;
 }
-
+summary::marker {
+  content: "+ ";
+  font-family: monospace;
+  color: red;
+  font-weight: bold;
+}
+[open]::details-content {
+  border: 0.2em dashed var(--accent-background);
+}
 p,
 blockquote {
   max-width: var(--line-length);
@@ -393,7 +402,7 @@ img:hover {
 }
 
 button {
-  border-radius: 60% 30% / 50% 70%;
+  border-radius: calc(40% + (30% * var(--rand1))) calc(20% + (40% * var(--rand1))) / calc(30% + (40% * var(--rand1))) calc(40% + (30% * var(--rand1)));
   padding: 0.8em;
   text-align: center;
   border: var(--stroke) var(--font-color) solid;

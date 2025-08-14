@@ -26,21 +26,47 @@ require_once('library/bootstrap.php');
     <p>PHP Extensions: <code><?= implode(', ', get_loaded_extensions()) ?></code></p>
     <p>Platform: <code><?= PHP_OS ?></code></p>
     <p>Architecture: <code><?= php_uname('m') ?></code></p>
-
+    <p>Workers: <?= getenv('PHP_CLI_SERVER_WORKERS')?>
     <p>Database directory exists: <code><?= is_dir('../database') ? 'yes' : 'no' ?></code>
     <p>Temp directory exists: <code><?= is_dir('../temp') ? 'yes' : 'no' ?></code>
 
     <p>Assets directory exists: <code><?= is_dir('../assets') ? 'yes' : 'no' ?></code>
     <p>Performance log file: <code><?= file_exists('../performance.csv') ? 'exists' : 'does not exist' ?></code>
     <p>Server log file: <code><?= file_exists('../server.log') ? 'exists' : 'does not exist' ?></code></p>
+    <script>
+    // Check if newer version available at chitch.org/version.txt
+    (async () => {
+        const currentVersion = '0.3'
+        try {
+            const resp = await fetch('http://chitch.org/api/version.txt', {cache: 'no-store'})
+            if (!resp.ok) return
+            const latest = (await resp.text()).trim()
+            // Compare versions (simple lexicographical, adjust if needed)
+            if (latest > currentVersion) {
+                const updateUrl = 'https://chitch.org/download'
+                const msg = `New version available: <strong>${latest}</strong> (current: ${currentVersion}) `
+                    + `<a href="${updateUrl}" target="_blank">Update now</a>`
+                const p = document.createElement('p')
+                p.innerHTML = msg
+                p.style.background = '#ff0'
+                p.style.padding = '0.5em'
+                p.style.borderRadius = '6px'
+                p.style.fontWeight = 'bold'
+                document.querySelector('header').appendChild(p)
+            }
+        } catch (e) {
+            // Ignore errors
+        }
+    })()
+    </script>
 </header>
 
 <main>
     <h2>More tools</h2>
 <ul>
     <?= Chitch\tree('li',
-        fn($x) => "<a href='" . basename($x) . "'>" . basename($x) . "</a>",
-        glob('documents/tools/*.php'))
+        fn($x) => "<a href='$x'>$x</a>",
+        glob('public/tools/*.php'))
     ?>
     <section>
     <h2>Libraries</h2>

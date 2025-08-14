@@ -1,7 +1,7 @@
 <?php
 // © 2025 Chitch Contributors, Licensed under the EUPL
 
-require_once("../library/bootstrap.php");
+require_once("../../library/bootstrap.php");
 
 use function Chitch\{read, write, getfiles, monitor};
 

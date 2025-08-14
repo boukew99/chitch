@@ -1,8 +1,8 @@
 .vscode/
 .env
 .github/copilot-instructions.md
-documents/.well-known/appspecific/com.chrome.devtools.json
-documents/video
-documents/images
-documents/audio
+public/.well-known/appspecific/com.chrome.devtools.json
+public/video
+public/images
+public/audio
 # symlink these to user equivalents directories

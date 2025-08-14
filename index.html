@@ -5,26 +5,50 @@
 <meta charset="UTF-8">
 <title>Chitch Help</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="documents/styles/icon.svg" >
-<link rel="stylesheet" href="documents/styles/chitch.css">
-<script defer src="documents/script/ensue.js"></script>
+<link rel="icon" href="public/styles/icon.svg" >
+<link rel="stylesheet" href="public/styles/chitch.css">
+<script defer src="public/script/ensue.js"></script>
 
 <header>
   <h1>Chitch Software Development Kit</h1>
   <h2>Version <em>0.3</em></h2>
-  <p>This is the Chitch Software Development Kit (SDK), used to build the Chitch Website. It can run locally, on your network or on the world wide web. Visit <a href="https://chitch.org">chitch.org</a> for more information about Chitch.
+  <p>This is the Chitch Software Development Kit (SDK), used to build the Chitch Website. It is build as a new sustainable Content Management System (CMS). It integrates with the filesystem to achieve transparent data flows and low resource usage. It can be forked and edited for your own blog or application, running locally, on your network or on the world wide web.Visit <a href="https://chitch.org">chitch.org</a> for more information about Chitch.
 
-  <p>Descriptions of jargon in the context of web technology can be found at <a href="https://developer.mozilla.org/en-US/docs/Glossary">the MDN Glossary for web development</a>.
+  <p>Descriptions of jargon in the context of web technology. A more extensive list is available on <a href="https://developer.mozilla.org/en-US/docs/Glossary">MDN Glossary</a>.
 
 </header>
 
 <main>
 
 <section>
+  <h2>Hardware Requirements</h2>
+  <p>These requirements for Chitch are based on <a href="https://www.debian.org/releases/trixie//armhf/ch03s04.en.html">Debain' Minimum Hardware Requirements</a>.
+
+  <figure>
+  <figcaption>Server only</figcaption>
+  <dl>
+    <dt>RAM</dt>
+    <dd>512 MB</dd>
+    <dt>Hard Drive</dt>
+    <dd>4 GB</dd>
+  </dl>
+  </figure>
+
+  <figure>
+  <figcaption>Development (with web browser)</figcaption>
+  <dl>
+    <dt>RAM</dt>
+    <dd>2 GB</dd>
+    <dt>Hard Drive</dt>
+    <dd>10 GB</dd>
+  </dl>
+  </figure>
+
+<section>
 
 <h2>Setup the SDK</h2>
 <h3>Download PHP Language Binary</h3>
-<p>Chitch provides an optimized PHP runtime. The browser detects you need to:
+<p>Chitch provides an optimized PHP runtime.
  <a id="download-link" href="#" download>Detecting your OS...</a>
 
 <details>
@@ -164,17 +188,48 @@ document.addEventListener("DOMContentLoaded", () => {
     <td>Contains namespaces with functions which can be imported
 
   <tr>
-    <td>documents/
+    <td>public/
     <td>Is the root of the public accessible files
 
 </table>
+
+<h2>Issue reporting</h2>
+
+<p>Issues with the software can be reported at <a href="https://github.com/boukew99/chitch/issues">https://github.com/boukew99/chitch/issues</a>. Please use inclusive language.
+
+<figure>
+  <figcaption>Legend has it a Capybara will visit if you contribute to Chitch</figcaption>
+  <pre><code>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⣀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣶⣶⣾⣿⠛⢿⣧⣤⣤⣤⣤⣤⣤⣤⣦⣤⣄⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠃⠀⠀⠈⠻⠿⠿⠛⠋⠉⠉⠉⠉⠉⠉⢉⣽⣿⠿⣷⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⢁⣤⣬⣿⣧⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⡿⠀⠀⠀⠀⠀⣠⣴⣶⠀⠀⠀⠀⢼⣿⠀⠈⠉⣿⡏⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⠁⠀⠀⠀⠀⠘⠟⠉⠀⠀⠀⠀⠀⣾⣿⠀⠀⠀⣿⡇⣿⣇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡄⠀⠀⠈⠀⣿⡏
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣦⣀⡀⣰⣿⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣻⣿⡿⠃⠀
+⠀⠀⠀⠀⢀⣤⣶⡿⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠟⠋⠀⠀⠀
+⠀⠀⠀⣰⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⠀⠀⠀⠀⠀
+⠀⠀⣼⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⣼⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀
+⢀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀
+⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠀⠀⠀⠀⠀⠀
+⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⠀⠀⠀⠀
+⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄⠀⢸⣿⡅⠀⠀⠀⠀⠀
+⣰⣾⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠀⢸⣿⠆⠀⠀⠀⠀⠀
+⣿⣧⣽⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⠃⠀⠀⢸⣿⠇⠀⠀⠀⠀⠀
+⠈⠉⠋⠉⠙⠿⢿⣶⣤⣀⣀⡀⠀⠀⠀⠀⠀⣀⣠⣦⡀⠀⠀⠀⢰⣿⡟⠙⢿⣦⣄⣀⣸⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠻⢿⣦⣤⣤⣾⠟⠀⠀⠀⠉⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</code></pre>
 
 </section>
 
 <section>
   <h2>Deployment</h2>
   <p>Chitch is designed to be run on a Linux server. It can be deployed on a web server or run as a standalone application. The recommended way to deploy Chitch is to use a Linux server with PHP installed. You can use a web server like Apache.
-  <p>FTP or preferably SFTP can be used to upload the files to the server. You can use you file manager to connect to the server via SFTP.
+  <p>FTP or preferredly SFTP can be used to upload the files to the server.
 </section>
 </main>
 <footer>
