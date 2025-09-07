@@ -1,7 +1,8 @@
 public/video
 public/images
 public/audio
-.zed
-.vscode
-.github
-# symlink these to user equivalents directories
+bin/
+!bin/php.ini
+vendor/
+database/
+database.*
