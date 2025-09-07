@@ -1,7 +1,16 @@
+Version: 0.5
+Base:
+Author: bokuh
+Date:
+Timezone: Europe/Amsterdam
+
+    * Removed temp/ directory in favor of /tempfs/ which is RAM backed
+    * Standardized function argument type hints, adding scope makes error reporting significantly more insightful
+
 Version: 0.4
 Base:
 Author: bokuh
-Date: 2025-06-08T23:03:13+02:00 NL
+Date:
 Timezone: Europe/Amsterdam
 
     * Add IANA Time Zones Field to the version log.
