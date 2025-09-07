@@ -18,7 +18,7 @@ Download a stable build from the [Github Releases Page](https://github.com/bouke
 
 If you have PHP installed run `command/server.php` to start the server and open Chitch at the given address.
 
-See `documents/` for more information.
+Visit `documents/installation.md` for more information on how to setup Chitch.
 
 ## Issue reporting
 Issues with the software can be reported at https://github.com/boukew99/chitch/issues. This is a volunteering effort.
