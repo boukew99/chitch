@@ -9,6 +9,7 @@ Benefits:
 - Low resource usage -> sustainable
 - Low complexity -> low maintenance
 - Lightweight -> responsive
+- Modular -> Add or delete files with functionality freely.
 
 > Chitch cannot hold long-lived connections like long-polling, SSE, or WebSockets. Chitch uses short-lived connections for lower resource usage. Because of this, true real-time interaction is not supported.
 ---
@@ -18,7 +19,15 @@ Download a stable build from the [Github Releases Page](https://github.com/bouke
 
 If you have PHP installed run `command/server.php` to start the server and open Chitch at the given address.
 
-Visit `documents/installation.md` for more information on how to setup Chitch.
+Visit [documents/installation.md](documents/installation.md) for more information on how to setup Chitch.
+
+## Directories
+- `command` : command line scripts
+- `documents` : documentation
+- `library` : libraries of functions
+- `public` : the web root for the web server
+- `tools` : development tools
+- (`database`) : user generated data
 
 ## Issue reporting
 Issues with the software can be reported at https://github.com/boukew99/chitch/issues. This is a volunteering effort.
