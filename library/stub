@@ -1,0 +1,59 @@
+<?php
+
+namespace Stub;
+
+function generate_function_stub(\ReflectionFunction $refFunc): string
+{
+    $namespace = $refFunc->getNamespaceName();
+    $stub = '';
+    if ($namespace) {
+        $stub .= "namespace $namespace {\n";
+    }
+    $params = [];
+    foreach ($refFunc->getParameters() as $param) {
+        $type = $param->hasType() ? $param->getType() . ' ' : '';
+        $default = '';
+        if ($param->isOptional() && $param->isDefaultValueAvailable()) {
+            $default = ' = ' . var_export($param->getDefaultValue(), true);
+        }
+        $params[] = $type . '$' . $param->getName() . $default;
+    }
+    $returnType = $refFunc->hasReturnType() ? ': ' . $refFunc->getReturnType() : '';
+    $stub .= "function {$refFunc->getName()}(" . implode(', ', $params) . ")$returnType {}\n";
+    if ($namespace) {
+        $stub .= "}\n";
+    }
+    return $stub;
+}
+
+function stub_from_file(string $file): array
+{
+    $before = get_defined_functions()['user'];
+    include_once $file;
+    $after = get_defined_functions()['user'];
+    $newFunctions = array_diff($after, $before);
+    $stubs = [];
+    foreach ($newFunctions as $funcName) {
+        $refFunc = new \ReflectionFunction($funcName);
+        $stubs[] = generate_function_stub($refFunc);
+    }
+    return $stubs;
+}
+
+function stub_from_extension(string $extension): array
+{
+    $funcs = get_extension_funcs($extension);
+    if (!$funcs) {
+        return [];
+    }
+    $stubs = [];
+    foreach ($funcs as $funcName) {
+        try {
+            $refFunc = new \ReflectionFunction($funcName);
+            $stubs[] = generate_function_stub($refFunc);
+        } catch (\ReflectionException $e) {
+            // Skip functions that can't be reflected
+        }
+    }
+    return $stubs;
+}

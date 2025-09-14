@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+require_once 'library/stub';
+
+use function Stub\stub_from_file;
+use function Stub\stub_from_extension;
+
+if ($argc < 3) {
+    echo "Usage:\n";
+    echo "  php stub file <file.php>\n";
+    echo "  php stub extension <extension_name>\n";
+    exit(1);
+}
+
+if ($argv[1] === 'file') {
+    $stubs = stub_from_file($argv[2]);
+    foreach ($stubs as $stub) {
+        echo $stub . "\n";
+    }
+} elseif ($argv[1] === 'extension') {
+    $stubs = stub_from_extension($argv[2]);
+    foreach ($stubs as $stub) {
+        echo $stub . "\n";
+    }
+} else {
+    echo "Unknown mode: {$argv[1]}\n";
+}
