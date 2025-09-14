@@ -1,7 +1,7 @@
 #!/usr/bin/env php
-<?php
+<?php // © 2025 Chitch Contributors, Licensed under the EUPL
 
-require_once 'library/halstead.php';
+require_once 'library/halstead';
 require_once 'library/chitch.php';
 
 ?>

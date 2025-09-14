@@ -1,7 +1,6 @@
 #!/usr/bin/env php
-<?php
+<?php // © 2025 Chitch Contributors, Licensed under the EUPL
 $php = PHP_BINARY ?? "php";
-$log = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), "access.log"]);
 $workers = 2;
 
 // Default values
@@ -15,15 +14,14 @@ $port = $argv[2] ?? $default_port;
 $address = $argv[3] ?? $default_address;
 
 $workers_env = PHP_OS_FAMILY !== "Windows" ? "PHP_CLI_SERVER_WORKERS=$workers" : "";
-$command = "{$workers_env} $php --server $address:$port --docroot $docroot --php-ini ./ 2> $log";
+$command = "{$workers_env} $php --server $address:$port --docroot $docroot --php-ini tools/";
 ?>
-<?= "Server at http://$address:$port (docroot: $docroot, log: $log)" . PHP_EOL ?>
+<?= "Server at http://$address:$port (docroot: $docroot, workers: $workers)" . PHP_EOL ?>
 <?= passthru($command) ?>
 
-  Error Log:
-<?= file_get_contents($log) ?>
 <?php
 # run in background with &
+# # redirect output to file with `> ../access.log`
 # run on network with `sudo command/server.php public 80 0.0.0.0`
 # dnsmasq for local domain names
-# https://www.php.net/manual/en/features.commandline.options.php
+# https://www.php.net/manual/en/features.commandline.webserver.php

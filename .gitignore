@@ -1,8 +1,6 @@
 public/video
 public/images
 public/audio
-bin/*
-!bin/php.ini
 vendor/
 database/
 database.*
