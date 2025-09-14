@@ -23,11 +23,10 @@ Visit [documents/installation.md](documents/installation.md) for more informatio
 
 ## Directories
 - `command` : command line scripts
-- `documents` : documentation
+- `documents` : documentation text
 - `library` : libraries of functions
 - `public` : the web root for the web server
 - `tools` : development tools
-- (`database`) : user generated data
 
 ## Issue reporting
 Issues with the software can be reported at https://github.com/boukew99/chitch/issues. This is a volunteering effort.

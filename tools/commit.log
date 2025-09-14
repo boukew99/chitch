@@ -1,0 +1,143 @@
+Version: 0.5
+Base:
+Author: bokuh
+Date:
+Timezone: Europe/Amsterdam
+
+Version: 0.4
+Base: 0ef7416ccf2f4ee9ba0d0812f4da51be41e04ffc7af7fc83a46c5f6267f5410f 
+Author: bokuh
+Date:
+Timezone: Europe/Amsterdam
+
+Version: 0.3
+Base: 2f0976d3f6ae623808492c1391777327e61a4ae4c9d2f2b1ad86528a1b0c7691
+Author: bokuh
+Date: 2025-06-08T23:03:13+02:00
+
+Version: 0.2
+Base: c30e73087271919fd09876786b691ed43f56f340f7d909bddcd294ae8437f21f
+Author: bokuh
+Date: 2025-06-13T16:25:39+02:00
+
+Version: 0.1
+Base: d8c7829fcc699c4929d354cb5ffb96a1cdaf78ae04ac6cfb58e4a70719f89b5d
+Author: bokuh
+Date: 2025-05-30T15:13:17+02:00
+
+Version: 0.0.3.7
+Base: 2545a509baac3a0a6ecb713eec0b11a1a80cb1ba504c15bdf34ecf1595cd4638
+Author: bokuh
+Date: 2025-05-18T12:19:32+02:00
+
+Version: 0.0.3.6
+Base 1daa0d2b292574f62a30cf0384ca1f01170169d26eedaabbbeae18bf7f3b2758
+Author: bokuh
+Date: 2025-04-28T23:36:50+02:00
+
+Version: 0.0.3.5
+Base: d51147091392e94ce3c266ad6fa45113c98a5a24016ba54dea48b8641a365204 
+Full: 261a57f1d5cc6ce497cbf03ba73075ca91a5e9d7a8d79f88356f0911b9fc49db 
+Author: bokuh
+Date: 2025-04-23T15:07:52+02:00
+
+Version: 0.0.3.4
+Base: 019e215bec219fb751c9982db80b65d6d5700c6f0129a5b0af43144659341126 
+Full: f7e469a0dc71b2840c38c4b81a682cff5056dfc5e32b7ae16836ae5f4a104240  
+Author: bokuh
+Date: 2025-04-15T15:49:13+02:00
+
+Version: 0.0.3.3
+Base: 030c0d9a2835a09970af77823517b2a3773641e0bc5306fd82347364b8598939 
+Full: b903a0d7d780d0f6ba673999408f0e7df01b71d7f206c599d1fc2e2204e66847 
+Author: bokuh <bokuh@chitch.org>
+Date: 2025-04-07
+
+Version: 0.0.3.2
+Base: 92ce3f2ea9f1278163dd07b93225c85148e4c24d1f603735fb1a6b4b4d6645a4 
+Author: bokuh
+Date: 2025-04-01
+
+Version: 0.0.3.1
+Base: 0c1388e904bf2636062aa599da541b46dd8d3e55c613620306c32514d09ac882
+Author: bokuh
+Date: 2025-03-21
+
+Version: 0.0.3
+Base: 306c6a687b1e9051a787ef49713bdbda08b816daf792c5b548b88a89f84ec179
+Author: bokuh
+Date: 2025-03-08
+
+Version: 0.0.2.1
+Base: 4a528a5d3bc1e3da2726d2ebc4cbc8f147260393a44111f1179d80736c2d6a63
+Author: bokuh
+Date: 2025-03-02
+
+Version: 0.0.2
+Base: c7d9a860a11e1ff000359674bf0b0cf4aee1e2d4af3cc0f056889a218d64e73a
+Author: bokuh
+Date: 2025-02-25
+
+Version: 0.0.1.5
+Base: dbe35d759e11eb8951e209128b9cfdb5c7eb307231142fe1613834ac905a54a7
+Author: bokuh
+Date: 2025-02-14
+
+Version: 0.0.1.4
+Base: 7b0cf336361d2869d5e479335a55ad264518edce6affbbb2494b110263b5d48d
+Author: bokuh
+Date: 2025-02-07
+
+Version: 0.0.1.3
+Base: 39834271bfca5dc2752d177dac24e46e2b62968ab3a4f8942628bd5dab456b42 
+Full: e32da1902a194e34410d5f220a46419c3b97dc698d83e9ada35a9e668ecea886
+Author: bokuh
+Date: 2025-02-01
+
+Version: 0.0.1.2
+Full: 56af5d98845ca95b95206a6ba51920f9a518fbe5429432f35840c556c2599a9d
+Author: bokuh
+Date: 2025-01-28
+
+Version: 0.0.1
+Full: 91c54ee2343da5aad04f629cf89dca7b3f49f984687afe70b3362350a9452623
+Author: bokuh
+Date: 2025-01-27
+
+Version 0.0.0.8
+Full: 3cdea8bf6d253eeaa498780a4ed0c3b60c2bddccd01cc703da635e2d0ed2c0aa
+Author: bokuh
+Date: 2025-01-16
+
+Version: 0.0.0.7
+Full: 316ed201443d49a041b1c0c21d489f6d7289c4bfc4f134d316afda6d72fa7cee
+Author: bokuh
+Date: 2025-01-09
+
+Version: 0.0.0.6
+Full: d18368903d61b1ead159e3b6f61f3b0c1382475e81c516f146b794fe3024098b
+Author: bokuh
+Date: 2024-12-20
+
+Version: 0.0.0.5
+Full: 5c57eef2020bcb615ec634e499c9de77afda3affe2f8200c94a218cd782fd517
+Author: bokuh
+Date: 2024-12-10
+
+Version: 0.0.0.4
+Full: ef8cb2ee5939e32b520155d38c3b76b77908a0cce68977febeb29a62d184a175
+Author: bokuh
+Date: 2024-11-23
+
+Version: 0.0.0.3
+Full: f4ca4ec6ad7f6b0bdb8e5dfdd1a2f97b8d7b7db03e79dcfb31a090ffdd08ad5e
+Author: bokuh
+Date: 2024-11-19
+
+Version: 0.0.0.2
+Full: f092898cfbcba6766c22bb3db23ed7615a59225ef34ff0c9df486f4d56c1f901 
+Date: 2024-11-12
+
+Version: 0.0.0.1
+Author: bokuh
+Date: 2024-11-04
