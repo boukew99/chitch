@@ -12,7 +12,7 @@ Chitch does not require system-wide installation. It is a portable web applicati
 
 Chitch requires PHP to run. You can check if PHP is installed by running `php -v` in your terminal. If yes then you are done.
 
-If PHP is not globally installed, then you can use a local PHP binary specifically build for Chitch. This binary can be used locally without a global installation. Thus it is also easy to remove again. Follow these steps to use the PHP binary for Chitch:
+If PHP is not globally installed, then you can use a local PHP binary specifically build for Chitch. This binary can be used locally without a global installation. Thus it is also easy to remove again. The benefit of this static binary is that it is perfectly calibrated for Chitch. The disadvantage of this static binary is that only works for Chitch. Follow these steps to use the PHP binary for Chitch:
 
 1. **Download the PHP Binary**: Visit the [Chitch PHP Binary Releases Page](https://github.com/boukew99/chitch/releases/supplementary) to download the latest PHP binary for your operating system.
 2. **Extract the Files**: Unzip the downloaded file beside the `chitch` directory.
@@ -23,12 +23,11 @@ The filesystem should look something like this at this point:
 - database/
 - php
 
-On Windows `php` binary is called `php.exe`.
+On Windows the `php` binary is called `php.exe`.
 
 ### MacOS user
 
 On **MacOS** you need to [allow execution to run](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac) the local PHP binary.
-
 
 ## Uninstallation
 
