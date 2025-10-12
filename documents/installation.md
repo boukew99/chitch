@@ -23,8 +23,6 @@ The filesystem should look something like this at this point:
 - database/
 - php
 
-On Windows the `php` binary is called `php.exe`.
-
 ### MacOS user
 
 On **MacOS** you need to [allow execution to run](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac) the local PHP binary.
