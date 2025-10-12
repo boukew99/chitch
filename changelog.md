@@ -2,43 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [0.5]
+## [0.5] -
 
 * Removed temp/ directory in favor of /tempfs/ which is RAM backed
 * Standardized function argument type hints, adding scope makes error reporting significantly more insightful
 * place `tools` directory outside `public` for security, and include it dynamically
-- bokuh, Europe/Amsterdam
 
-## [0.4]
+* bokuh,
+
+## [0.4] - 2025-08-06T21:54:24+02:00
 
 * Add IANA Time Zones Field to the version log.
 * Changed if-else to match in chitch.php for expressive branching and improved readability.
 * Deleted pre-compression support in favor of compressed in memory caching
 
+Base: `0ef7416ccf2f4ee9ba0d0812f4da51be41e04ffc7af7fc83a46c5f6267f5410f`
 
 ## [0.3] - 2025-06-08T23:03:13+02:00
 
 * Allign with Github version number.
-* Improved change.log format loosely following `git log` and  https://keepachangelog.com/. Using 'ISO 8061' dates. Reversed (non-appendable) log order. Fields: 'Version, Base, Author, Date' and the changes.
+* Improved change.log format loosely following `git log` and  <https://keepachangelog.com/>. Using 'ISO 8061' dates. Reversed (non-appendable) log order. Fields: 'Version, Base, Author, Date' and the changes.
 * Add backup support by archiving 'database/', supported in practice on hosts with FTP.
 * Uploaded releases with binary to Github.
 * rename 'view/' to 'pages/' for easier documentation
 * Added resource.log for tracking external resource usage.
 
-- bokuh, Europe/Amsterdam
+Base: `2f0976d3f6ae623808492c1391777327e61a4ae4c9d2f2b1ad86528a1b0c7691`
 
 ## [0.2] - 2025-06-13T16:25:39+02:00
-- Remove `.vscode` directory from version control, it is user specific.
-- Added chitchmail(), a wrapper with better defaults, includes debug support.
-- Added `template` for HTML templating with variable injections.
 
+* Remove `.vscode` directory from version control, it is user specific.
+* Added chitchmail(), a wrapper with better defaults, includes debug support.
+* Added `template` for HTML templating with variable injections.
 
-## [0.1](d8c7829fcc699c4929d354cb5ffb96a1cdaf78ae04ac6cfb58e4a70719f89b5d) - 2025-05-30T15:13:17+02:00
+Base: `c30e73087271919fd09876786b691ed43f56f340f7d909bddcd294ae8437f21f`
 
-## [0.0.3.7](2545a509baac3a0a6ecb713eec0b11a1a80cb1ba504c15bdf34ecf1595cd4638) - 2025-05-18T12:19:32+02:00
+## [0.1] - 2025-05-30T15:13:17+02:00
+
+Base: `d8c7829fcc699c4929d354cb5ffb96a1cdaf78ae04ac6cfb58e4a70719f89b5d`
+
+## [0.0.3.7] - 2025-05-18T12:19:32+02:00
 
 * rename 'share/' to 'view/' for easier documentation
 * added 'textmarkup()' for 'textarea' input
@@ -59,96 +62,112 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * updated robots.txt with surfaced files
 * testing inline SVG based chart in traffic.php
 
-## [0.0.3.6](1daa0d2b292574f62a30cf0384ca1f01170169d26eedaabbbeae18bf7f3b2758) - 2025-04-28T23:36:50+02:00
+Base: `2545a509baac3a0a6ecb713eec0b11a1a80cb1ba504c15bdf34ecf1595cd4638`
 
-- Surfaced Files from non-functional directories
-- 'license/' include in 'assets/'
-- 'library/' symlink
-- 'getfiles()' exludes symlinks, which can be double
-- 'makefile':
-    - added chitch.deb target, includes root filesystem layout
-    - Established 4 main targets
-    - Moved make targets to static filesystem layout
-- '.htaccess' does module checking
-- CSS nesting syntax fix (&)
-- changed contact messages to use 'details'
-- moved editor.php internal script to editor.js
-- 'component' rename to 'share'
+## [0.0.3.6] - 2025-04-28T23:36:50+02:00
 
-## [0.0.3.5](d51147091392e94ce3c266ad6fa45113c98a5a24016ba54dea48b8641a365204) - 2025-04-23T15:07:52+02:00
+* Surfaced Files from non-functional directories
+* 'license/' include in 'assets/'
+* 'library/' symlink
+* 'getfiles()' exludes symlinks, which can be double
+* 'makefile':
+  * added chitch.deb target, includes root filesystem layout
+  * Established 4 main targets
+  * Moved make targets to static filesystem layout
+* '.htaccess' does module checking
+* CSS nesting syntax fix (&)
+* changed contact messages to use 'details'
+* moved editor.php internal script to editor.js
+* 'component' rename to 'share'
 
-- HTML template functions, a(), p(), head(), foot()
-- pipe() function for transforms
-- assets & license directory symlinks
-- generic robots.txt disallowing support directories
-- install.php creates 'log/' directory
-- Table of Contents within 'details' for hidden JS insertion
-- 'template/' directory layer for generated files and building.
-- using pristine.patch for 'source/' and 'pristine/' creation
-- 'source/' includes static symlinks
-- 'plugin/' symlink to global binaries as fallback
+Base: `1daa0d2b292574f62a30cf0384ca1f01170169d26eedaabbbeae18bf7f3b2758`
 
-## [0.0.3.4](019e215bec219fb751c9982db80b65d6d5700c6f0129a5b0af43144659341126) - 2025-04-15T15:49:13+02:00
+## [0.0.3.5] - 2025-04-23T15:07:52+02:00
+
+* HTML template functions, a(), p(), head(), foot()
+* pipe() function for transforms
+* assets & license directory symlinks
+* generic robots.txt disallowing support directories
+* install.php creates 'log/' directory
+* Table of Contents within 'details' for hidden JS insertion
+* 'template/' directory layer for generated files and building.
+* using pristine.patch for 'source/' and 'pristine/' creation
+* 'source/' includes static symlinks
+* 'plugin/' symlink to global binaries as fallback
+
+Base: `d51147091392e94ce3c266ad6fa45113c98a5a24016ba54dea48b8641a365204`
+Full: `261a57f1d5cc6ce497cbf03ba73075ca91a5e9d7a8d79f88356f0911b9fc49db`
+
+## [0.0.3.4] - 2025-04-15T15:49:13+02:00
 
 Hello from a patch file!
 Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot patch of chitch-3-3, meaning there were more changes than total lines.
-- Using spread(...) operator for more ergonomic input
-- chitch.php, input validation functions for scalar types
-- 'session/' component directory
-- markup 'p()' constructor
-- symlink generation in 'makefile'
-- 'light-dark()' for code.css and more token CSS
-- Replaced shell scripts with 1 'makefile' gaining targeted builds
-- renames for more accuracy
 
-## [0.0.3.3](030c0d9a2835a09970af77823517b2a3773641e0bc5306fd82347364b8598939) - 2025-04-07
+* Using spread(...) operator for more ergonomic input
+* chitch.php, input validation functions for scalar types
+* 'session/' component directory
+* markup 'p()' constructor
+* symlink generation in 'makefile'
+* 'light-dark()' for code.css and more token CSS
+* Replaced shell scripts with 1 'makefile' gaining targeted builds
+* renames for more accuracy
 
-- Changed Contributors copyright to Maintainers.
-- Optimized build.sh to the point where it is almost a linear makefile.
-- Uses brotli compression (a streaming output, which complements density) for compression static files on the server.
-- Better integration of the custom patch files with Git
-- Overhauled change.log format
-- Cleaned up a lot of dangling lines and committed to 1 approach
-- removed monitor(), to offload to the server
-- Updated authorize() to align with login.php
-- Streamlined install.php procedure
-- 'assets/' now holds individual symlinks
-- null checks in ensue.js
-- input handling and the input fields are now near, with fields having server-side input memory
-- Added Firacode as monospace font in code.css
-- Capy renamed to Chitchi
-- Added Progressive Web App files
-- Added assets.php to list available assets
-- update.php was split into disk.php
-- reference.php covers all chitch.php functions
+Base: `019e215bec219fb751c9982db80b65d6d5700c6f0129a5b0af43144659341126`
+Full: `f7e469a0dc71b2840c38c4b81a682cff5056dfc5e32b7ae16836ae5f4a104240`
 
-## [0.0.3.2](92ce3f2ea9f1278163dd07b93225c85148e4c24d1f603735fb1a6b4b4d6645a4) - 2025-04-01
+## [0.0.3.3] - 2025-04-07
 
-- Removed most symlinks, moved '.git/', '.vscode/', '/.github' above 'source/', they are used for Github and Codespace setup. Codespace setup is added for developer accesiblity.
-- Copyright notice is added before license notices, as 'Chitch © its Contributors 2025'
-- shell scripts were streamlined into build.sh, test.sh. run.sh.
-- build.sh prepares the filesystem and packages Chitch for defined targets in parallel.
-- With build.sh we can have a clean default filesystem of 'source/', 'assets/' and license.txt.
-- Renamed library.php to chitch.php like its namespace and to allow other library files.
-- 'read()' allows for entry cutoff to control for size.
-- a bunch of formatting
-- modularized 'public/' into directories of 'traffic', 'blog' and 'tools'.
-- Configured automatic brotli decompression on client.
-- trying inline form input handling
-- removed login in contact.php.
-- Added guestbook.php for some fun
-- 'mail()' requires 'From:' and '-f'.
-- 'light-dark()' CSS color scheme
-- Capy(bara) happened
-- Added Fira Code as mono font, for ligatures and variable weight.
-- Added editor.php to edit code via HTTP
-- Added logs.php to inspect and overwrite dynamically created log files.
-- Added lookup.php for an overview of the functions and constants in the PHP binary.
-- a code line can be targeted with # in the URL in patch.php
-- Self Extracting Archive was removed for its complexity
-- test.sh reports the status codes of GET requests.
+* Changed Contributors copyright to Maintainers.
+* Optimized build.sh to the point where it is almost a linear makefile.
+* Uses brotli compression (a streaming output, which complements density) for compression static files on the server.
+* Better integration of the custom patch files with Git
+* Overhauled change.log format
+* Cleaned up a lot of dangling lines and committed to 1 approach
+* removed monitor(), to offload to the server
+* Updated authorize() to align with login.php
+* Streamlined install.php procedure
+* 'assets/' now holds individual symlinks
+* null checks in ensue.js
+* input handling and the input fields are now near, with fields having server-side input memory
+* Added Firacode as monospace font in code.css
+* Capy renamed to Chitchi
+* Added Progressive Web App files
+* Added assets.php to list available assets
+* update.php was split into disk.php
+* reference.php covers all chitch.php functions
 
-## [0.0.3.1](0c1388e904bf2636062aa599da541b46dd8d3e55c613620306c32514d09ac882) - 2025-03-21
+Base: `030c0d9a2835a09970af77823517b2a3773641e0bc5306fd82347364b8598939`
+Full: `b903a0d7d780d0f6ba673999408f0e7df01b71d7f206c599d1fc2e2204e66847`
+
+## [0.0.3.2] - 2025-04-01
+
+* Removed most symlinks, moved '.git/', '.vscode/', '/.github' above 'source/', they are used for Github and Codespace setup. Codespace setup is added for developer accesiblity.
+* Copyright notice is added before license notices, as 'Chitch © its Contributors 2025'
+* shell scripts were streamlined into build.sh, test.sh. run.sh.
+* build.sh prepares the filesystem and packages Chitch for defined targets in parallel.
+* With build.sh we can have a clean default filesystem of 'source/', 'assets/' and license.txt.
+* Renamed library.php to chitch.php like its namespace and to allow other library files.
+* 'read()' allows for entry cutoff to control for size.
+* a bunch of formatting
+* modularized 'public/' into directories of 'traffic', 'blog' and 'tools'.
+* Configured automatic brotli decompression on client.
+* trying inline form input handling
+* removed login in contact.php.
+* Added guestbook.php for some fun
+* 'mail()' requires 'From:' and '-f'.
+* 'light-dark()' CSS color scheme
+* Capy(bara) happened
+* Added Fira Code as mono font, for ligatures and variable weight.
+* Added editor.php to edit code via HTTP
+* Added logs.php to inspect and overwrite dynamically created log files.
+* Added lookup.php for an overview of the functions and constants in the PHP binary.
+* a code line can be targeted with # in the URL in patch.php
+* Self Extracting Archive was removed for its complexity
+* test.sh reports the status codes of GET requests.
+
+Base: `92ce3f2ea9f1278163dd07b93225c85148e4c24d1f603735fb1a6b4b4d6645a4`
+
+## [0.0.3.1] - 2025-03-21
 
 * Changed patch.log to be under version control. It keeps an human summary of past patches and its hashes and can be appended to for the current patch, which is then included in the patch file at the top.
 * Git repo is symlinked for compatibility with this version system.
@@ -167,7 +186,9 @@ Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot p
 * Added tree() for reverse breadth first HTML creation.
 * Changed similarity index to 1% (must indicate the orthogonality and uniqueness of the files!)
 
-## [0.0.3](306c6a687b1e9051a787ef49713bdbda08b816daf792c5b548b88a89f84ec179) - 2025-03-08
+Base: `0c1388e904bf2636062aa599da541b46dd8d3e55c613620306c32514d09ac882`
+
+## [0.0.3] - 2025-03-08
 
 * Surfaced 'source' directory.
 * Added .gitignore for binary and data.
@@ -194,13 +215,17 @@ Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot p
 * Removed 'track' with the use of a lower similarity index threshold (15%), assuming highly orthogonal content.
 * Removed benchmark.php in favor for Web browser response analysis tools.
 
-## [0.0.2.1](4a528a5d3bc1e3da2726d2ebc4cbc8f147260393a44111f1179d80736c2d6a63) - 2025-03-02
+Base: `306c6a687b1e9051a787ef49713bdbda08b816daf792c5b548b88a89f84ec179`
+
+## [0.0.2.1] - 2025-03-02
 
 * Removed command line approach, since its implementation is platform dependent.
 * Added 'start' to start php webserver on static php binary.
 * Change Chitch deploy to use the (visual) web browser and file browser.
 
-## [0.0.2](c7d9a860a11e1ff000359674bf0b0cf4aee1e2d4af3cc0f056889a218d64e73a) - 2025-02-25
+Base: `4a528a5d3bc1e3da2726d2ebc4cbc8f147260393a44111f1179d80736c2d6a63`
+
+## [0.0.2] - 2025-02-25
 
 * Added configuration for Language models and online development enviroment.
 * Improved Benchmarks utilizing Apache Bench
@@ -223,7 +248,9 @@ Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot p
 * hotreload.js is not so useful anymore with longer pages.
 * Added 'commands' file to be sourced with the shell to do some system checking and starting php server.
 
-## [0.0.1.5](dbe35d759e11eb8951e209128b9cfdb5c7eb307231142fe1613834ac905a54a7) - 2025-02-14
+Base: `c7d9a860a11e1ff000359674bf0b0cf4aee1e2d4af3cc0f056889a218d64e73a`
+
+## [0.0.1.5] - 2025-02-14
 
 * Separated POST + exit from GET + echo into an interface and page file (specifically for traffic and chat).
 * New file structure for usage with shared hosting and setting docroot dynamically.
@@ -234,7 +261,9 @@ Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot p
 * Added disk analysis which calculates the wasted space in the storage blocks.
 * Added size display of the dependent binaries.
 
-## [0.0.1.4](7b0cf336361d2869d5e479335a55ad264518edce6affbbb2494b110263b5d48d) - 2025-02-07
+Base: `dbe35d759e11eb8951e209128b9cfdb5c7eb307231142fe1613834ac905a54a7`
+
+## [0.0.1.4] - 2025-02-07
 
 * Added EUPL license
 * Added backup feature, combining a human interface and API.
@@ -244,29 +273,51 @@ Interestingly the delta diff of chitch-3-3 is bigger in size than the snapshot p
 * Trying fixed path ~/chitch/ for installation.
 * Added local mail() interception for testing.
 
-## [0.0.1.3](39834271bfca5dc2752d177dac24e46e2b62968ab3a4f8942628bd5dab456b42) - 2025-02-01
+Base: `7b0cf336361d2869d5e479335a55ad264518edce6affbbb2494b110263b5d48d`
+
+## [0.0.1.3] - 2025-02-01
 
 * Changed to more generalized hosting setup
 
-## [0.0.1.2](56af5d98845ca95b95206a6ba51920f9a518fbe5429432f35840c556c2599a9d) - 2025-01-28
+Base: `39834271bfca5dc2752d177dac24e46e2b62968ab3a4f8942628bd5dab456b42`
+Full: `e32da1902a194e34410d5f220a46419c3b97dc698d83e9ada35a9e668ecea886`
+
+## [0.0.1.2] - 2025-01-28
 
 * Added email-based login
 
+`56af5d98845ca95b95206a6ba51920f9a518fbe5429432f35840c556c2599a9d`
 
-## [0.0.1](91c54ee2343da5aad04f629cf89dca7b3f49f984687afe70b3362350a9452623) - 2025-01-27
+## [0.0.1] - 2025-01-27
 
-## [0.0.0.8](3cdea8bf6d253eeaa498780a4ed0c3b60c2bddccd01cc703da635e2d0ed2c0aa) - 2025-01-16
+`91c54ee2343da5aad04f629cf89dca7b3f49f984687afe70b3362350a9452623`
 
-## [0.0.0.7](316ed201443d49a041b1c0c21d489f6d7289c4bfc4f134d316afda6d72fa7cee) - 2025-01-09
+## [0.0.0.8] - 2025-01-16
 
-## [0.0.0.6](d18368903d61b1ead159e3b6f61f3b0c1382475e81c516f146b794fe3024098b) - 2024-12-20
+`3cdea8bf6d253eeaa498780a4ed0c3b60c2bddccd01cc703da635e2d0ed2c0aa`
 
-## [0.0.0.5](5c57eef2020bcb615ec634e499c9de77afda3affe2f8200c94a218cd782fd517) - 2024-12-10
+## [0.0.0.7] - 2025-01-09
 
-## [0.0.0.4](ef8cb2ee5939e32b520155d38c3b76b77908a0cce68977febeb29a62d184a175) - 2024-11-23
+`316ed201443d49a041b1c0c21d489f6d7289c4bfc4f134d316afda6d72fa7cee`
 
-## [0.0.0.3](f4ca4ec6ad7f6b0bdb8e5dfdd1a2f97b8d7b7db03e79dcfb31a090ffdd08ad5e) - 2024-11-19
+## [0.0.0.6] - 2024-12-20
 
-## [0.0.0.2](f092898cfbcba6766c22bb3db23ed7615a59225ef34ff0c9df486f4d56c1f901) - 2024-11-12
+`d18368903d61b1ead159e3b6f61f3b0c1382475e81c516f146b794fe3024098b`
 
-## [0.0.0.1]() - 2024-11-04
+## [0.0.0.5] - 2024-12-10
+
+`5c57eef2020bcb615ec634e499c9de77afda3affe2f8200c94a218cd782fd517`
+
+## [0.0.0.4] - 2024-11-23
+
+`ef8cb2ee5939e32b520155d38c3b76b77908a0cce68977febeb29a62d184a175`
+
+## [0.0.0.3] - 2024-11-19
+
+`f4ca4ec6ad7f6b0bdb8e5dfdd1a2f97b8d7b7db03e79dcfb31a090ffdd08ad5e`
+
+## [0.0.0.2] - 2024-11-12
+
+`f092898cfbcba6766c22bb3db23ed7615a59225ef34ff0c9df486f4d56c1f901`
+
+## [0.0.0.1] - 2024-11-04
